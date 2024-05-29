@@ -2,10 +2,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import { Button } from "@/common-ui";
-// import { Link } from "@/common-ui";
+import { Link } from "@/common-ui";
 
-// import { Link as NextLink } from 'next/link';
-import Link from 'next/link';
+
+// import Link from 'next/link';
+
+
 
 import { Header, Main, Footer, Wrapper } from "@/components";
 

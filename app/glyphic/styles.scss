@@ -66,8 +66,10 @@ li {
 }
 .NavLink {
   padding: 1rem 1rem 2rem 1rem;
-  color: $blue-80;
-  background-color: $blue-40;
+  // color: $blue-80;
+  // background-color: $blue-40;
+  color: var(--color);
+  background: var(--background);
   transition: 150ms;
   &:hover {
     color: $blue-80;
@@ -81,7 +83,7 @@ li {
 
 .Link {
   // padding: 0rem 1rem 2rem 1rem;
-  color: $blue-80;
+  color: var(--color) !important;
   transition: 150ms;
   &:hover {
     color: $blue-100;

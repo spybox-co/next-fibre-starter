@@ -9,10 +9,11 @@ import "@/common-ui/styles.scss";
 
 // const inter = Inter({ subsets: ["latin"] });
 
+// https://stackoverflow.com/questions/75674866/adding-favicon-to-nextjs-app-router-application
 
 export const metadata: Metadata = {
   title: settings.title,
-  description: settings.description
+  description: settings.description,
 };
 
 export default function RootLayout({

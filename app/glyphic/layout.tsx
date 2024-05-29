@@ -16,7 +16,8 @@ const classes = ["App", "Glyphic"].join(" ").trim();
 
 export const metadata: Metadata = {
   title: settings.title,
-  description: settings.description
+  description: settings.description,
+  icons: '/glyphic/favicon.ico'
 };
 
 export default function Layout({

@@ -1,3 +1,3 @@
-import { Link } from './Link';
+import { AnchorLink } from './Link';
 
-export { Link };
+export { AnchorLink as Link };

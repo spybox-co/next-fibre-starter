@@ -1,9 +1,9 @@
 "use client"
-import { Link as NextLink } from 'next/link';
+import Link from 'next/link';
 
 import './Link.scss';
 
-export const Link = (props) => {
+export const AnchorLink = (props) => {
   const { 
     target = '_blank',
     href, 
@@ -17,9 +17,9 @@ export const Link = (props) => {
 
   if (isLink) {
     return (
-      <NextLink className="Link" href={href}>
+      <Link className="Link" href={href}>
         {children}
-      </NextLink>
+      </Link>
     );
   } else {
     return (
