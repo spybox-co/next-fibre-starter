@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+
+/* 
+    Most styles inherit from card styles
+    @import './card.scss';
+*/
+.ImageCard {
+  
+  .Tile {
+    overflow: hidden;
+    h2 {
+      position: relative;
+      text-decoration: none;
+      z-index: 1;
+    }
+  }
+}
+
+
+
+
+.Card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

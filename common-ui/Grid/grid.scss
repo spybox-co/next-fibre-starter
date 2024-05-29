@@ -1,0 +1,40 @@
+@import 'styles/variables.scss';
+@import 'styles/custom-media.scss';
+
+.fbr--grid {
+  padding: { 
+    left: calc($spacer-3xl - $space-02); // calc($spacer-3xl - $space-02 + 15%); 
+    right: calc($spacer-m + 27.975rem); 
+    top: $spacer-xxl;
+    bottom: $spacer-3xl; 
+  };
+
+  @media screen and (max-width: $breakpoint-ultra) {
+    padding: { 
+      left: calc($spacer-3xl - $space-02); 
+      right: calc($spacer-m + 18.975rem); 
+    };
+  }
+
+  @media screen and (max-width: $breakpoint-wide) {
+    padding: { 
+      left: calc($spacer-3xl - $space-02); 
+      right: calc($spacer-m + 9.975rem); 
+    };
+  }
+
+  @media screen and (max-width: $breakpoint-xlarge) {
+    // padding: { left: calc($spacer-3xl - $space-02); right: calc($spacer-m + 19rem); top: $spacer-m; bottom: $spacer-m };
+    padding: { 
+      left: calc($spacer-3xl - $space-02); 
+      right: $spacer-m; //calc($spacer-m + 18.975rem); 
+    };
+  }
+
+  @media screen and (max-width: $breakpoint-large) {
+    padding: { 
+      left: $spacer-m; // calc($spacer-3xl - $space-02); 
+      right: $spacer-m; 
+    };
+  }
+}

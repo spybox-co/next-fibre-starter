@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { settings } from '../utils/data';
+import { settings } from '@/utils/data';
 // import { Inter } from "next/font/google";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>{children}</body>
+      <body className={GeistSans.className}>
+        {children}
+      </body>
     </html>
   );
 }

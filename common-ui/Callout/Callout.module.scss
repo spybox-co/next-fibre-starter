@@ -1,0 +1,28 @@
+@import 'styles/variables.scss';
+@import 'styles/custom-media.scss';
+
+.module {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  [class*="--row"] {
+    margin-bottom: 2rem;
+  }
+  :global {
+    .Callout-left-column {
+      margin-bottom: 2rem;
+    }
+  }
+
+}
+
+.heading {
+  font-size: calc(1.25rem + 0.5vw);
+}
+
+.parapgragh {
+  width: 80%;
+  @media screen and (max-width: $breakpoint-medium ) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+// @import 'styles/variables.scss';
+
+.fbr--row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: { 
+    left: -1rem; 
+    right: -1rem 
+  };
+  // background-color: magenta;
+  // padding: { left: $spacer-3xl; right: $spacer-m; top: $spacer-m; bottom: $spacer-m };
+}

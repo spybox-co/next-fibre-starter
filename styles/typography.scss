@@ -129,6 +129,7 @@ h1 {
   line-height: 1.3;
   font-weight: 300;
   letter-spacing: 0;
+  margin: 0.875em 0;
 }
 
 h2 {
@@ -136,6 +137,7 @@ h2 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
+  margin: 0.875em 0;
 }
 
 h3 {
@@ -143,7 +145,7 @@ h3 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
-  // color: red;
+  margin: 0.875em 0;
 }
 
 h4 {
@@ -151,6 +153,7 @@ h4 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
+  margin: 0.875em 0;
 }
 
 h5 {
@@ -158,6 +161,7 @@ h5 {
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0;
+  margin: 0.875em 0;
 }
 
 h6 {
@@ -165,6 +169,7 @@ h6 {
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0;
+  margin: 0.875em 0;
 }
 
 p, span {
@@ -173,6 +178,9 @@ p, span {
   line-height: 1.125rem;
   font-weight: 300;
   letter-spacing: 0.1px;
+}
+p {
+  margin: 1em 0;
 }
 
 strong {

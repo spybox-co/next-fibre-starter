@@ -1,0 +1,97 @@
+@import '../../styles/fibre.scss';
+
+// :root {
+//   --background: #78a9ff;
+//   --color: #002d9c;
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #491d8b;
+//     --color: #e8daff;
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }
+.Glyphic {
+  --background: #78a9ff;
+  --color: #002d9c;
+}
+
+.App {
+  color: var(--color);
+  background: var(--background);
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
+.Head {
+  display: flex;
+  flex-direction: column;
+  // color: $blue-20;
+}
+
+.lead-space {
+  margin: 1rem 0;
+  // color: $blue-20;
+}
+
+.logo {
+  display: flex;
+  padding: 1rem 0;
+  position: relative;
+  font-size: 3rem;
+  height: 9rem;
+  margin: 1px;
+}
+
+.Navigation {
+  padding: 3rem 0;
+  
+  ul {
+    display: flex;
+    margin: 0 -1rem;
+  }
+
+
+}
+.NavLink {
+  padding: 1rem 1rem 2rem 1rem;
+  color: $blue-80;
+  background-color: $blue-40;
+  transition: 150ms;
+  &:hover {
+    color: $blue-80;
+    background-color: $blue-30;
+  }
+
+  .glyph {
+    margin-left: 1.5rem;
+  }
+}
+
+.Link {
+  // padding: 0rem 1rem 2rem 1rem;
+  color: $blue-80;
+  transition: 150ms;
+  &:hover {
+    color: $blue-100;
+  }
+
+  .glyph {
+    margin-left: 1.5rem;
+  }
+}
+
+.About {
+  margin-bottom: 4rem;
+}

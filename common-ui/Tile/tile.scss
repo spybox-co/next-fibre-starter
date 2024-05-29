@@ -1,0 +1,162 @@
+@import 'styles/variables.scss';
+
+
+[class*="tile"] {
+  width: 100%;
+  height: 100%;
+}
+
+.gutter {
+  .Tile {
+    margin: 0 0 2rem 0;
+  }
+}
+[class*="gutter__"] {
+  .Tile {
+    margin: 0 0 1rem 0;
+  }
+}
+
+/*
+   Static Tile styles 
+*/
+
+.StaticTile {
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.ClickableTile {
+  position: relative;
+  padding: 1rem $spacer-xxl 1rem 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+   default Tile styles 
+*/
+
+a {
+  &.Tile, 
+  &.ClickableTile {
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+  }
+}
+.Tile {
+  position: relative;
+  transition: background-color 150ms ease;
+  padding: 1rem;
+
+  
+  &:last-child {
+    flex-grow: 1;
+  }
+  .Tile-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .Tile-title {
+    // font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .Tile-subtitle, .Tile-title {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+  }
+}
+
+.Tile, .ClickableTile {
+  color: $gray-100;
+  background-color: $gray-10;
+  
+  &:hover {
+    background-color: $gray-20;
+  }
+}
+
+.Tile, .ClickableTile {
+  &.dark {
+    color: $white;
+    background-color: $gray-90;
+
+    &:hover {
+      background-color: $gray-80;
+    }
+  }
+}
+
+[class*="white"],
+[class*="g00"] {
+  .Tile, .ClickableTile {
+    background-color: $gray-10 !important;
+    &:hover {
+      background-color: $gray-20 !important;
+    }
+  }
+}
+
+[class*="g10"] {
+  .Tile, .ClickableTile {
+
+    background-color: $white;
+    &:hover {
+      background-color: $gray-20;
+    }
+  }
+}
+[class*="g20"] {
+  .Tile, .ClickableTile {
+    background-color: $white;
+    &:hover {
+      background-color: $gray-10;
+    }
+  }
+}
+[class*="white"],
+[class*="g10"],
+[class*="g20"] {
+  .Tile, .ClickableTile {
+    &.dark {
+      color: $white;
+      background-color: $gray-80 !important;
+      &:hover {
+        background-color: $gray-70 !important;
+      }
+      
+    }
+  }
+}
+
+[class*="g90"] {
+  .Tile, .ClickableTile {
+    &.dark {
+      background-color: $gray-80;
+      &:hover {
+        background-color: $gray-70;
+      }
+      color: $white;
+    }
+  }
+}
+
+[class*="g100"] {
+  .Tile, .ClickableTile {
+    &.dark {
+      background-color: $gray-90;
+      &:hover {
+        background-color: $gray-80;
+      }
+      color: $white;
+    }
+  }
+}

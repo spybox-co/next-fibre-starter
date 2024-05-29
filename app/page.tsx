@@ -1,12 +1,17 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-import { Button, Link } from "@/common-ui";
+import { Button } from "@/common-ui";
+// import { Link } from "@/common-ui";
+
+// import { Link as NextLink } from 'next/link';
+import Link from 'next/link';
 
 import { Header, Main, Footer, Wrapper } from "@/components";
 
+
 export default function Home() {
-  console.log("Home");
+
   return (
     <>
       <Header />
@@ -25,12 +30,25 @@ export default function Home() {
               priority
             />
           </div>
-
+        </Wrapper>
+        <Wrapper>
+          {/* <NextLink href="/glyphic">GLYPHIC App</NextLink> */}
+          <ul>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/glyphic">GLYPHIC App</Link>
+            </li>
+          </ul>
+        </Wrapper>  
+        <Wrapper>
           <div>
             <Button kind="primary" renderIcon="ExternalLink">Click me!</Button>
             <Button renderIcon="arrow-up">Click me!</Button>
             <Button anchor to='https://www.kiepuszewski.com' renderIcon="external-link">Click me!</Button>
-            <Link to='https://www.kiepuszewski.com'>ExternalLink</Link>
+            {/* <Link href='https://www.kiepuszewski.com'>ExternalLink</Link> */}
+            
           </div>
 
           <div className={styles.grid}>
@@ -41,7 +59,18 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <h2>
-                Docs <span>-&gt;</span>
+                Docs <span>→</span>
+              </h2>
+              <p>Find in-depth information about Next.js features and API.</p>
+            </a>
+            <a
+              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2>
+                Docs <span>→</span>
               </h2>
               <p>Find in-depth information about Next.js features and API.</p>
             </a>
@@ -53,7 +82,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <h2>
-                Learn <span>-&gt;</span>
+                Learn <span>→</span>
               </h2>
               <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
             </a>
@@ -65,7 +94,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <h2>
-                Templates <span>-&gt;</span>
+                Templates <span>→</span>
               </h2>
               <p>Explore starter templates for Next.js.</p>
             </a>
@@ -77,7 +106,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <h2>
-                Deploy <span>-&gt;</span>
+                Deploy <span>→</span>
               </h2>
               <p>
                 Instantly deploy your Next.js site to a shareable URL with Vercel.

@@ -1,0 +1,59 @@
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+
+  // TODO: support parameter to prevent to small height when scaling viewport
+  min-height: 8rem;
+
+  &--1x1 {
+    padding-bottom: 100%;
+  }
+  &--2x1 {
+    padding-bottom: 50%;
+  }
+  &--3x1 {
+    padding-bottom: 33.3%;
+  }
+  &--3x2 {
+    padding-bottom: 66.6%;
+  }
+  &--4x3 {
+    padding-bottom: 75%;
+  }
+  &--16x9 {
+    padding-bottom: 56.25%;
+  }
+  &--1x2 {
+    padding-bottom: 200%;
+  }
+  &--1x3 {
+    padding-bottom: 300%;
+  }
+  &--2x3 {
+    padding-bottom: 150%;
+  }
+  &--3x4 {
+    padding-bottom: 125%;
+  }
+}
+
+.aspect-ratio--object {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// Future params and styles
+
+// .aspect-ratio--2x1:before {
+//   padding-top: 100%;
+// }
+// .aspect-ratio:before {
+//   content: "";
+//   float: left;
+//   height: 0;
+//   margin-left: -1px;
+//   width: 1px;
+// }
