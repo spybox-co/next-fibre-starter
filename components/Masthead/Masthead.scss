@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+.Masthead {
+  min-height: 20rem;
+  height: 50vh;
+  color: $blue-40;
+  background-color: $blue-80; // $background;
+  // border-bottom: 1px solid $gray-80;
+  
+  .Wrapper {
+    display: flex;
+    height: 100%;
+  }
+
+  .Masthead-container {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 4rem 0;
+  }
+
+  .Heading {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 4rem 0;
+    h1 {
+      font-weight: 300;
+      line-height: 1.2;
+      padding-top: 1rem;
+      padding-right: 2rem;
+      margin: 0;
+    }
+    h2 {
+      // font-size: 2.5vw;
+      // @media (max-width: 66rem) {
+      //   font-size: 1.5rem;
+      // }
+      margin-top: 0;
+      // margin-bottom: 10%;
+    }
+  }
+
+}

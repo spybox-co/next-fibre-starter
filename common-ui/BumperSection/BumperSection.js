@@ -5,7 +5,7 @@ import {
   useMemo,
 } from 'react';
 
-import './BumperSection.scss';
+// import './BumperSection.scss';
 
 const BumperSection = ({ block = 'start', onClick }) => {
   const bumpRef = useRef(null);

@@ -40,6 +40,7 @@
   
   &--primary,
   &--secondary,
+  &--default,
   &--danger,
   &--warning,
   &--ghost:not([class*="--icon-only"]):has([class*="--icon"])
