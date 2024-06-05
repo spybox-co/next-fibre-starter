@@ -3,8 +3,8 @@ import wrapperStyles from '../Wrapper/Wrapper.module.scss';
 
 export const Main = ({ children, className, wrapper }) => {
   const classes = {
-    root: [className, mainStyles.module, wrapperStyles.grid].join(' ').trim(),
-    grid: [className, mainStyles.module].join(' ').trim()
+    root: [className, mainStyles.module].join(' ').trim(),
+    grid: [className, mainStyles.module, wrapperStyles.grid].join(' ').trim()
   };
 
   if (wrapper) {

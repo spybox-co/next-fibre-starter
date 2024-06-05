@@ -1,16 +1,20 @@
 @import '../../styles/variables.scss';
 
-.BumperSection {
-  display: flex;
-  padding: 1rem;
-  background-color: $gray-80;
-  height: 100vh;
-  max-height: 16rem;
-  min-height: 16rem;
-  min-width: calc(100% / 4);
-  transition: max-height 600ms ease, font-size 150ms ease,;
-  font-size: 125%;
-
+.fbr--bumper-section {
+    display: flex;
+    padding: 0 1rem;
+    flex-direction: column;
+    color: $gray-30;
+    background-color: $gray-80;
+    height: 100vh;
+    max-height: 16rem;
+    min-height: 16rem;
+    min-width: calc(100% / 4);
+    transition: max-height 600ms ease, font-size 150ms ease,;
+    font-size: 125%;
+  &--container {
+    padding: 1rem 0;
+  }
   .glyph {
     font-size: 1.5rem;
     font-weight: 300;
@@ -33,5 +37,8 @@
   }
   h6 {
     margin: 1rem 0;
+  }
+  .label {
+    font-size: inherit;
   }
 }

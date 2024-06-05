@@ -56,6 +56,8 @@ export { store, StateProvider };
 
 // @See: Nextjs Context Provider with useMemo 
 // https://medium.com/geekculture/how-to-use-context-usereducer-and-localstorage-in-next-js-cc7bc925d3f2
+// and
+// https://medium.com/@seb_5882/nextjs-13-4-using-context-api-in-app-router-a1198a61c5c8
 
 // export function useAppContext() {
 //   return useContext(store);

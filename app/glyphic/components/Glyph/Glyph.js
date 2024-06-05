@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from 'react';
-import { store } from '../../app/glyphic/context/store.js';
+import { store } from '@/app/glyphic/context/store.js';
 
 import Icon from '@/common-ui/Icon/index.js';
 
@@ -41,7 +41,7 @@ export const Glyph = (props) => {
         className="Glyph" 
         // onClick={() => copyToClipboard(glyph)}
       >
-        {/* <div className="glyph-aria-id" tabindex="0">
+        {/* <div className="glyph-aria-id" tabIndex={0}>
           <span>{glyph}</span>
           <a 
             role="button" 
@@ -52,16 +52,16 @@ export const Glyph = (props) => {
           
         </div> */}
 
-        {/* <span className="glyph-aria-id" tabindex="0">{glyph}</span> */}
+        {/* <span className="glyph-aria-id" tabIndex={0}>{glyph}</span> */}
         <a 
           role="button" 
           href={`#${id}`} 
           onClick={() => copyToClipboard(glyph)}
-          // tabindex="-1"
+          // tabIndex={-1}
         >
           <span className="glyph-symbol responsive-heading-04">{glyph}</span>
-          <div className="glyph-code" tabindex="-1" aria-hidden="true">{symbol}</div>
-          <div className="glyph-action" tabindex="-1" aria-hidden="true">
+          <div className="glyph-code" tabIndex={-1} aria-hidden="true">{symbol}</div>
+          <div className="glyph-action" tabIndex={-1} aria-hidden="true">
             <Icon type="Copy" stroke={1} />
           </div>
         </a>

@@ -1,8 +1,16 @@
 "use client"
+
 import Link from 'next/link';
 
-import './Link.scss';
+/*
+    Component Link is named as AnchorLink for NextJS usage
+    because of native next/link functionality. 
+    Export name in barrel export file is still as "Link"
 
+    @SEE ./index.js
+    >  export { AnchorLink as Link };
+    
+*/
 export const AnchorLink = (props) => {
   const { 
     target = '_blank',

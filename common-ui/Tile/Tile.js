@@ -1,10 +1,10 @@
 import React from 'react';
 import { Column } from '@/common-ui/Grid';
-import RatioObject from 'components/RatioObject';
+import RatioObject from '../RatioObject';
 
 import Link from 'next/link';
 
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 
 

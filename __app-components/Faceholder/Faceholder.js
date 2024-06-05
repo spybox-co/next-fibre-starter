@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import { Image } from '../Image';
 import Skeleton from '../Skeleton';
 
-export const Faceholder = ({
+export const Faceimage = ({
   source,
   size,
   // delay,

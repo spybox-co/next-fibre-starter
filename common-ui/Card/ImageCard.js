@@ -1,10 +1,10 @@
 import React from 'react';
-import { Column } from 'layout/Grid';
-import Tile from 'components/Tile';
-import Icon from 'components/Icon';
-import Image from 'components/Image';
+import { Column } from '../Grid';
+import Tile from '../Tile';
+import Icon from '../Icon';
+import Image from '../Image';
 
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 
 

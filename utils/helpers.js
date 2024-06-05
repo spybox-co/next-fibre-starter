@@ -1,3 +1,7 @@
+export function cn (...args) {
+  return args.filter(Boolean).join(' ')
+}
+
 export const uf = (string) => {
   if (string !== undefined)
     return string[0].toUpperCase() + string.substring(1);

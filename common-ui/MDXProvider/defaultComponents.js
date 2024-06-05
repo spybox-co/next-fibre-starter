@@ -2,7 +2,7 @@ import {
   Grid, 
   Row, 
   Column 
-} from 'layout/Grid'
+} from '../Grid'
 
 import { 
   Header,
@@ -14,7 +14,7 @@ import Container from 'containers/Container'
 import Section from 'containers/Section'
 
 
-import Icon from 'components/Icon'
+import Icon from '../Icon'
 
 import {
   Button, 

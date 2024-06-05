@@ -7,10 +7,10 @@ export const GlyphLibrary = (props) => {
   const { glyphs } = props;
 
   return (
-    <section className="Gallery-module" id="symbols" tabindex="0" aria-label="Gallery of symbols and font glyphs">
+    <section className="Gallery-module" id="symbols" tabIndex={0} aria-label="Gallery of symbols and font glyphs">
       {/* <Wrapper> */}
       <div className="Glyphs-module">
-        <ul className="glyph-library" tabindex="0" aria-label="Find and select glyph, click to copy one to clipboard">
+        <ul className="glyph-library" tabIndex={0} aria-label="Find and select glyph, click to copy one to clipboard">
           {glyphs && glyphs.map((glyph, i) => (
             <li key={i} className="Card aspect-ratio-1-1">
               <div className="Card-inside">

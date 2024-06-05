@@ -16,7 +16,7 @@ const createNameForReactComponent = (string) => {
 export default function Icon({ type, className, size, stroke }) {
 
 
-  console.log('Icon:', createNameForReactComponent(type));
+  // console.log('Icon:', createNameForReactComponent(type));
 
   const attributes = {
     className: className || '',
@@ -24,7 +24,7 @@ export default function Icon({ type, className, size, stroke }) {
     color: "currentColor",
     size: size || 24
   }
-  const iconName = createNameForReactComponent(type) || 'Circle';
+  const iconName = type ? createNameForReactComponent(type) : 'Circle';
 
   return <IconComponent type={iconName} settings={attributes} /> 
 }

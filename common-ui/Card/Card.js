@@ -1,10 +1,10 @@
 import React from 'react';
-import { Column } from 'layout/Grid';
-import Tile from 'components/Tile';
-import Icon from 'components/Icon';
+import { Column } from '../Grid';
+import Tile from '../Tile';
+import Icon from '../Icon';
 
 
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 const Placeholder = () => (
   <p>This is only <em>placeholder paragraph</em> for <strong>Card</strong> component. Replace it with your own content.</p>
@@ -13,7 +13,8 @@ const Placeholder = () => (
 
 export default function Card(props) {
 
-  const { 
+  const {
+    action,
     children, 
     href,
     dark, 
@@ -57,9 +58,24 @@ export default function Card(props) {
     action: cn('Card-action')
   }
 
+
+  const actionType = (action) => {
+    switch(action) {
+      case "Link": 
+        return "ArrowRight"
+      case "ExternalLink":
+        return "ExternalLink";
+      case "Download": 
+        return "Download";
+        
+      default: 
+        return "ArrowRight";
+    }
+  }
+
   const Action =
     <div className={classes.action}>
-      <Icon name="ArrowRight" />
+      <Icon type={actionType(action)} />
     </div>
 
   const Element = 

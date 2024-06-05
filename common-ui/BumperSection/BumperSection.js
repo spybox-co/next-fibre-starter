@@ -1,3 +1,5 @@
+'use client';
+
 import {
   useEffect,
   useState,
@@ -5,9 +7,25 @@ import {
   useMemo,
 } from 'react';
 
+
+import { Grid, Row } from '../Grid';
+import { Link } from '../Link';
+
 // import './BumperSection.scss';
 
-const BumperSection = ({ block = 'start', onClick }) => {
+export default function BumperSection(props) {
+  const { 
+    asLink,
+    block = 'start',
+    children,
+    glyph,
+    href,
+    label = 'Bumper Section action name',
+    onClick,
+    wrapper,
+  } = props;
+
+
   const bumpRef = useRef(null);
   const [hovered, setHovered] = useState();
   const scrollSettings = {
@@ -27,6 +45,7 @@ const BumperSection = ({ block = 'start', onClick }) => {
     }),
     []
   );
+
   useEffect(() => {
     if (hovered) {
       executeScroll();
@@ -35,10 +54,16 @@ const BumperSection = ({ block = 'start', onClick }) => {
   }, [hovered]);
 
   const classes = {
-    root: ['BumperSection', hovered && 'hover'].join(' ').trim()
+    root: ['BumperSection', 'fbr--bumper-section', wrapper && 'fbr--grid', hovered ? 'hover' : ''].join(' ').trim(),
+    container: ['fbr--bumper-section--container'].join(' ').trim()
   };
 
-  return (
+  let isLink;
+  // if (href !== undefined) {
+  //   isLink = href.charAt(0) === '/';
+  // }
+
+  const BumperSectionContainer = (
     <div
       role="button"
       onClick={onClick}
@@ -46,16 +71,37 @@ const BumperSection = ({ block = 'start', onClick }) => {
       ref={bumpRef}
       className={classes.root}
     >
-      <div>
-        <Glyph type="↓" />
+      <div className={classes.container}>
+        <Glyph type={glyph} />
 
-        <div>Load more</div>
+        
+        {label && !children && (<h4 className="label">{label}</h4>)}
+        {children}
+          
+  
       </div>
     </div>
   );
+
+  // Doesn't work as in Tile component - I don't know why?
+  // let BumperSectionComponent;
+
+
+  if (asLink) {
+    return (
+      <a
+        href={href}
+      >
+
+        {BumperSectionContainer}
+      </a>
+    );
+  } else {
+    return BumperSectionContainer;
+  }
 };
 
-export default BumperSection;
+
 
 const Glyph = ({ type }) => {
   return <div className="glyph">{type || '↑'}</div>;

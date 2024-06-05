@@ -6,7 +6,12 @@ import { Grid, Row, Column } from 'layout'
 import styles from './Callout.module.scss'
 
 export default function Callout(props) {
-  const { children, heading, paragraph, theme } = props
+  const { 
+    children,
+    heading, 
+    paragraph, 
+    theme 
+  } = props;
 
 
   const column = {

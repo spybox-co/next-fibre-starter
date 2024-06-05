@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.CommandBar {
+  position: sticky;
+  top: 0;
+  margin: 0 -2rem;
+  padding: 0 0 1rem 0;
+  z-index: 1000;
+  // box-shadow: 0 4px 2px 0 $background;
+  [class*="--actions"] {
+    display: flex;
+    align-items: center;
+  }
+  .middle--actions {
+    flex-grow: 1;
+  }
+
+  &-container {
+    background-color: $background;
+    display: flex;
+    // width: 100%;
+    padding: 2rem 2rem 0;
+    text-align: right;
+    justify-content: flex-end;
+  }
+  .RefreshButton {
+    width: 8.75rem;
+  }
+  .Results {
+    display: flex;
+    // padding: 0 1rem;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+
+
+  input {
+    height: 2.5rem;
+    max-width: 5rem;
+  }
+}

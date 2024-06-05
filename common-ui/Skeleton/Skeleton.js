@@ -1,6 +1,6 @@
 const Skeleton = ({ type }) => {
   return (
-    <div className="ff--skeleton__placeholder ff--skeleton__placeholder--flex" />
+    <div className="fbr--skeleton__placeholder fbr--skeleton__placeholder--flex" />
   );
 };
 

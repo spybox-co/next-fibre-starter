@@ -13,7 +13,7 @@ const romanDate = () => {
 }
 
 export const Footer = ({ name }) => (
-  <footer className="Footer" tabindex="0">
+  <footer className="Footer" tabIndex={0}>
     <Wrapper>
       <div className="Footer-container">
         <p className="productive-paragraph-02 monoblock">

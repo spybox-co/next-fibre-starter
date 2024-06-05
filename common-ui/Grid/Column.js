@@ -1,9 +1,9 @@
 import React from 'react';
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 
 
-import * as grid from 'styles/renderColumns';
+import * as grid from './renderColumns';
 
 
 import styles from './Layout.module.scss';

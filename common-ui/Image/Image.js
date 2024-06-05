@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import styles from './Image.module.scss';
 
@@ -27,7 +29,7 @@ const overlayStyles = {
   clipPath: 'inset(0)'
 };
 
-export function Image(props) {
+export default function Image(props) {
   const [state, setState] = useState({ highResImageLoaded: false });
   const { overlaySrc, src, alt, ...others } = props;
   const { highResImageLoaded } = state;

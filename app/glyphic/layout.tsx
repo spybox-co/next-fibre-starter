@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { settings } from '@/utils/data';
+import { StateProvider } from './context/store.js';
+
+import { App } from '@/components';
+
 import { Space_Grotesk } from "next/font/google";
 // import { GeistSans } from 'geist/font/sans';
 // import { GeistMono } from 'geist/font/mono';
@@ -11,11 +15,10 @@ const space = Space_Grotesk({ subsets: ["latin"] });
 
 // space.className
 
-const classes = ["App", "Glyphic"].join(" ").trim();
 
 
 export const metadata: Metadata = {
-  title: settings.title,
+  title: "Glyphic", // settings.title,
   description: settings.description,
   icons: '/glyphic/favicon.ico'
 };
@@ -25,5 +28,9 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={classes}>{children}</div>;
+  return (
+    <StateProvider>
+      <App appName={metadata.title}>{children}</App>
+    </StateProvider>
+  )
 }

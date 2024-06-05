@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-import { Button } from "@/common-ui";
-import { Link } from "@/common-ui";
+import { Button, Link, Card } from "@/common-ui";
+
+
+import { Grid, Column, Row } from "@/common-ui";
 
 
 // import Link from 'next/link';
@@ -20,8 +22,6 @@ export default function Home() {
     
       <Main wrapper>
         <Wrapper>
-
-
           <div className={styles.center}>
             <Image
               className={styles.logo}
@@ -43,7 +43,20 @@ export default function Home() {
               <Link href="/glyphic">GLYPHIC App</Link>
             </li>
           </ul>
-        </Wrapper>  
+        </Wrapper>
+        <Grid>
+          <Row>
+            <Column col={4}>
+              <Card href="/glyphic" title="Glyphic" subtitle="Cool symbols app">GLYPHIC IS YOUR ONE-STOP SOLUTION FOR COPYING GLYPHS AND SPECIAL CHARACTERS EFFORTLESSLY</Card>
+            </Column>
+            <Column col={4}>
+              <Card href="/faceholder" title="Faceholder" subtitle="Faces that not exist"/>
+            </Column>
+            <Column col={4}>
+              <Card title="App" subtitle="See All" action="Download" />
+            </Column>
+          </Row>
+        </Grid>
         <Wrapper>
           <div>
             <Button kind="primary" renderIcon="ExternalLink">Click me!</Button>
@@ -52,6 +65,8 @@ export default function Home() {
             {/* <Link href='https://www.kiepuszewski.com'>ExternalLink</Link> */}
             
           </div>
+
+          
 
           <div className={styles.grid}>
             <a

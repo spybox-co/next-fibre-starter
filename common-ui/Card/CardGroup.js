@@ -1,6 +1,6 @@
 
-import { cn } from 'utils/helpers';
-import { Row } from 'layout/Grid';
+import { cn } from '@/utils/helpers';
+import { Row } from '../Grid';
 // import * as styles from './CardGroup.module.scss';
 
 

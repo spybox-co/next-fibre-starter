@@ -1,4 +1,4 @@
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 export default function RatioObject(props) {
 

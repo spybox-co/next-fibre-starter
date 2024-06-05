@@ -1,4 +1,4 @@
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 // import styles from './Layout.module.scss'
 

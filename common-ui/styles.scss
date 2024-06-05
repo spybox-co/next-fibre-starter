@@ -1,5 +1,20 @@
 /*
   Global styles for components
 */
-@import 'Button/Button.scss';
-// @import 'Link/Link.scss';
+@import './BumperSection/bumper-section.scss';
+@import './Button/button.scss';
+@import './Link/link.scss';
+
+
+
+
+@import './Card/card.scss';
+@import './Card/image-card.scss';
+
+
+
+@import './Grid/column.scss';
+@import './Grid/grid.scss';
+@import './Grid/row.scss';
+@import './Input/input.scss';
+@import './Tile/tile.scss';

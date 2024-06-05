@@ -1,9 +1,9 @@
 import React from 'react';
-import { cn } from 'utils/helpers';
+import { cn } from '@/utils/helpers';
 
 import { Grid, Row, Column } from 'layout'
 import { Card, CardGroup, ImageCard, Tile, ClickableTile, StaticTile } from 'components'
-import RatioObject from 'components/RatioObject';
+import RatioObject from '../RatioObject';
 
 import styles from './Embedded.module.scss';
 
