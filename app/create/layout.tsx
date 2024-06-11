@@ -4,6 +4,9 @@ import { settings } from '@/utils/data';
 
 import { App } from '@/components';
 
+import "@/styles/typography.scss";
+// import "@/common-ui/styles.scss";
+
 export const metadata: Metadata = {
   title: "Create", //settings.title,
   description: settings.description,

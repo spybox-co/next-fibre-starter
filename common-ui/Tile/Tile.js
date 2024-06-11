@@ -90,6 +90,14 @@ export default function Tile(props) {
         {TileComponent}
       </RatioObject>
     );
+  } else if (col && ratio) {
+    return (
+      <Column {...columnProps}>
+        <RatioObject>
+          {TileComponent}
+        </RatioObject>
+      </Column>
+    );
   } else {
     return(
       <>{TileComponent}</>

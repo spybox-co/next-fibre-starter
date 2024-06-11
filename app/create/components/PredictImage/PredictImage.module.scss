@@ -1,42 +1,41 @@
 .module {
-  position: relative;
+  // position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  padding: 1rem;
 }
 
 .image {
   display: flex;
 
-  aspect-ratio: 1/1;
+  // aspect-ratio: 1/1;
   width: 100%;
 }
 
 .actions {
   position: absolute;
-  padding: 1.5rem;
+  // padding: 1.5rem;
   bottom: 0;
   right: 0;
   display: flex;
   justify-content: flex-end;
 
-  button {
-    color: lightgray;
-    border: none;
-    background-color: rgba(black, 0.4);
-    &:hover {
-      color: white;
-      border: none;
-    }
-    &:active {
-      border: none;
-      background-color: rgba(black, 0.6);
-    }
-    // &:disabled {
-    //   color: red;
-    //   border: red 1px solid;
-    //   cursor: blocked;
-    // }
-  }
+  // button {
+  //   color: lightgray;
+  //   border: none;
+  //   background-color: rgba(black, 0.4);
+  //   &:hover {
+  //     color: white;
+  //     border: none;
+  //   }
+  //   &:active {
+  //     border: none;
+  //     background-color: rgba(black, 0.6);
+  //   }
+  //   // &:disabled {
+  //   //   color: red;
+  //   //   border: red 1px solid;
+  //   //   cursor: blocked;
+  //   // }
+  // }
 }

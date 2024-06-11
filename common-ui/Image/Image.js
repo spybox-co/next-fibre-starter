@@ -31,7 +31,13 @@ const overlayStyles = {
 
 export default function Image(props) {
   const [state, setState] = useState({ highResImageLoaded: false });
-  const { overlaySrc, src, alt, ...others } = props;
+  const { 
+    overlaySrc, 
+    src, 
+    alt,
+    ...others 
+  } = props;
+
   const { highResImageLoaded } = state;
   let filteredProps = omit(props, 'overlaySrc');
   // console.log(filteredProps);
@@ -39,31 +45,66 @@ export default function Image(props) {
 
   // ?auto=compress&cs=tinysrgb&dpr=2&w=5
 
-  return (
-    <div className={styles.container}>
-      <img
-        {...filteredProps}
-        onLoad={() => {
-          setState({ highResImageLoaded: true });
-        }}
-        src={`${src}?q=50`}
-        alt={highResImageLoaded && `${alt}`}
-        {...others}
-      />
 
-      {!highResImageLoaded && (
+  let isBase64;
+  if (src !== undefined) {
+    isBase64 = src.includes('base64');
+  }
+
+  if (isBase64) {
+    return (
+      <div className={styles.container}>
+        {/* <span style={{ position: 'absolute' }}>Jest bejz 64</span> */}
         <img
           {...filteredProps}
-          className={props.className}
-          // {...(highResImageLoaded && { style: { opacity: '0' } })}
-          style={{ ...overlayStyles, ...overrideStyle }}
-          src={overlaySrc || `${src}?q=10&cs=tinysrgb&dpr=2&w=5`}
+          onLoad={() => {
+            setState({ highResImageLoaded: true });
+          }}
+          src={`${src}`}
           alt={`${alt}`}
+          // alt={highResImageLoaded && `${alt}`}
           {...others}
         />
-      )}
-    </div>
-  );
+
+        {!highResImageLoaded && (
+          <img
+            {...filteredProps}
+            className={props.className}
+            style={{ ...overlayStyles, ...overrideStyle }}
+            src={overlaySrc || `${src}`}
+            alt={`${alt}`}
+            {...others}
+          />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.container}>
+        <img
+          {...filteredProps}
+          onLoad={() => {
+            setState({ highResImageLoaded: true });
+          }}
+          src={`${src}?q=50`}
+          alt={highResImageLoaded && `${alt}`}
+          {...others}
+        />
+
+        {!highResImageLoaded && (
+          <img
+            {...filteredProps}
+            className={props.className}
+            // {...(highResImageLoaded && { style: { opacity: '0' } })}
+            style={{ ...overlayStyles, ...overrideStyle }}
+            src={overlaySrc || `${src}?q=10&cs=tinysrgb&dpr=2&w=5`}
+            alt={`${alt}`}
+            {...others}
+          />
+        )}
+      </div>
+    );
+  }
 }
 
 /*

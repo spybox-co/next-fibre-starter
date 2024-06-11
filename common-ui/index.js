@@ -12,9 +12,10 @@ import Input from './Input';
 import Icon from './Icon';
 // import { Leadspace } from './Leadspace';
 import { InlineLoading } from './Loading';
+import RatioObject from './RatioObject';
 import Skeleton from './Skeleton';
-// import Tile from './Tile'
-// import { ClickableTile, StaticTile } from './Tile';
+import Tile from './Tile'
+import { ClickableTile, StaticTile } from './Tile';
 
 
 
@@ -37,7 +38,8 @@ export {
   Icon,
   Link,
   // Leadspace,
-  // Tile,
-  // StaticTile
+  Tile,
+  StaticTile,
+  RatioObject,
   Skeleton
 }

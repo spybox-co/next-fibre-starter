@@ -3,7 +3,10 @@ import Button from './Button';
 // import Icon from '../Icon';
 
 const IconButton = (props) => {
-  const { renderIcon, ...other } = props;
+  const { 
+    renderIcon, 
+    ...other 
+  } = props;
 
   return <Button hasOnlyIcon renderIcon={renderIcon} {...other} />;
 };

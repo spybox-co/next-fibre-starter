@@ -28,6 +28,10 @@ import './Gallery.scss';
 // New Name
 // GaleryItems (Section. List) -> GalleryAsset (Card)
 
+// IntersectionObserver loading and placeholder from API loading images
+// https://stackoverflow.com/questions/63405009/react-how-do-you-lazyload-image-from-api-response
+// https://codesandbox.io/p/sandbox/flamboyant-kare-zz6qq?file=%2Fsrc%2Findex.js&fontsize=14&hidenavigation=1&theme=dark
+
 const itemsAmount = 48;
 const moreItems = 48;
 

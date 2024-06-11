@@ -1,7 +1,7 @@
 const defaultColums = {
   small: 4,  // of 4
   medium: 8, // of 8
-  large: 8,  // of 12
+  large: 6,  // of 12
   max: 3     // of 12
 }
 
@@ -40,8 +40,8 @@ export const renderColumns = (col) => {
   }
 }
 
-export const renderLargeColumns = (col) => {
-  switch(col) {
+export const renderLargeColumns = (colLg) => {
+  switch(colLg) {
     case 1: 
       return 1;
     case 2: 

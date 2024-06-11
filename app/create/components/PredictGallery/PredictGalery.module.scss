@@ -1,0 +1,32 @@
+.module {
+  position: relative;
+  
+
+  ul {
+    display: flex;
+    padding: 0;
+    display: flex;
+    // width: 100%;
+    flex-wrap: wrap;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 1rem;
+  }
+  // li {
+  //   flex: 0 0 50%;
+  //   max-width: 50%;
+  // }
+}
+
+.list {
+  margin: 0 -1rem;
+}
+
+.item {
+  // position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

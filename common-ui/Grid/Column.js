@@ -42,7 +42,7 @@ export default function Column(props) {
   const colNum = grid.renderColumns(col);
   const colLgNum = grid.renderLargeColumns(colLg);
   const colMdNum = grid.renderMediumColumns(colMd);
-  const colSmNum = grid.renderMediumColumns(colSm);
+  const colSmNum = grid.renderSmallColumns(colSm);
 
   // if (id) {
   //   console.log(`id check ${id}`, col, colSm, colMd, colLg);
@@ -54,8 +54,8 @@ export default function Column(props) {
   const classes = 
     cn(
       className && className,
-      'dtm--column',
-      flex && 'dtm--row',
+      'fbr--column',
+      flex && 'fbr--row',
       styles.column, 
       empty && 'column__empty', 
       colNum && `col-${colNum}`,

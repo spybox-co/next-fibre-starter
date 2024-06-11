@@ -42,7 +42,7 @@ const Button = (props) => {
     <Component
       className={classes}
       onClick={onClick}
-      href={props.to}
+      href={props.href}
       disabled={disabled}
       {...other}
     >

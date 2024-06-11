@@ -19,7 +19,7 @@ export default function RatioObject(props) {
 
   const classes = {
     root: aspectRatio, //ratio && aspectRatio,
-    container: 'aspect-ratio--object',
+    container: cn(className, 'aspect-ratio--object'),
   }
 
 

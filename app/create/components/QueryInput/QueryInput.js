@@ -26,8 +26,6 @@ export const QueryInput = (props) => {
 
   const stickyElement = useRef();
   const [isSticky, setIsSticky] = useState(false);
-  // const isSticky = useDetectSticky(ref);
-  // const [isSticky, ref, setIsSticky] = useDetectSticky();
 
   const observerSettings = {
     threshold: 1.0,
@@ -35,47 +33,26 @@ export const QueryInput = (props) => {
 
   const handler = (entries) => {
     const [entry] = entries;
-    console.log(entry);
+
     // entries is an array of observed dom nodes
     // we're only interested in the first one at [0]
     // because that's our .sentinal node.
     // Here observe whether or not that node is in the viewport
 
     if (entry.intersectionRatio < 1) {
-      console.log(entry.intersectionRatio);
       setIsSticky(true);
     } else {
       setIsSticky(false);
     }
-
-    // if (!entries[0].isIntersecting) {
-    //   headerEl.classList.add('enabled')
-    // } else {
-    //   headerEl.classList.remove('enabled')
-    // }
   };
 
   useEffect(() => {
-    console.log(stickyElement);
-    // const observer = new IntersectionObserver(
-    //   // ([e]) => handler(e.intersectionRatio < 1),
-    //   (event) => handler(event),
-    //   observerSettings,
-    // );
+    // console.log(stickyElement);
 
     let observer = new IntersectionObserver(
-      // ([e]) => handler(e.intersectionRatio < 1),
       (event) => handler(event),
       observerSettings,
     );
-
-    // let observer = new IntersectionObserver((entries) => {
-    //   entries.forEach(function (each, index) {
-    //     if (each.isIntersecting) {
-    //       console.log(each, each.isIntersecting, each.intersectionRatio);
-    //     }
-    //   }, observerSettings);
-    // });
 
     if (stickyElement.current) {
       observer.observe(stickyElement.current);

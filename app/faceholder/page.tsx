@@ -6,11 +6,13 @@ import { store } from '@/app/faceholder/context/store.js';
 //import { getThisPersonDoesNotExist } from './utils/getThisPersonDoesNotExist';
 // import { getFaces } from './utils/getFaces';
 
-import { Header, Main, Footer, Wrapper } from "@/components";
+import { Header, Main, Footer, Wrapper } from '@/components';
 import { Gallery } from '@/app/faceholder/components/Gallery';
 
 import { Grid, Row, Column } from '@/common-ui';
 
+
+import { ImageItem } from '@/components/ImageItem';
 import { Link } from '@/common-ui/Link';
 // import { Link } from './components/Link';
 // import { BumperSection } from './components/BumperSection';
@@ -82,7 +84,12 @@ const LeadSpace = () => {
 const BrowsePhotos = ({ assets }) => {
   return(
     <section id="browse" className="BrowsePhotos">
-      <Gallery data={assets} />
+      <Grid>
+        <Row>
+          <ImageItem source={{ url: 'https://ozgrozer.github.io/100k-faces/0/3/003443.jpg?q=50' }} />
+        </Row>
+      </Grid>
+      {/* <Gallery data={assets} /> */}
     </section>
   );
 }

@@ -37,14 +37,32 @@ export const HF = async (api, prompt, accessToken) => {
 
     reader.onend = reject;
     reader.onabort = reject;
+
+    /* 
+        @MODE
+        1. Option returns all results
+    */
+
     reader.onload = () => resolve(reader.result);
     reader.readAsDataURL(result);
+
+    /* 
+        @MODE
+        2. Option focused only success status code, kills invalid output nad doesn't push the result
+    */
 
     // reader.readAsDataURL(result);
     // reader.onloadend = function () {
     //   const image = reader.result.includes("data:image/jpeg;base64");
     //   if (image) resolve(reader.result);
     // };
+
+    /* 
+        @MODE
+        3. Option detects various types of base 64 
+        
+        Status - NOT WORKING!
+    */
 
     // reader.readAsDataURL(result);
     // reader.onloadend = function () {

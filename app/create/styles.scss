@@ -96,22 +96,6 @@ section {
   z-index: 1000;
 }
 
-.Gallery {
-  position: relative;
-  margin: 0 -1rem;
-
-  ul {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  li {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
 .PreRendered {
   // background: white;
   // min-height: 150vh;

@@ -26,7 +26,7 @@ export const Console = ({ loading, predictions }) => {
     <div className={styles.module}>
       {images && (
         <>
-          <h4>Results console:</h4>
+          <h4>Results console</h4>
           <pre>
             <div>
               <small>Date: </small>

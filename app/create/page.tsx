@@ -3,17 +3,17 @@
 
 // import Replicate from "replicate";
 import { useState, useEffect, useCallback } from "react";
-// import { client } from "@gradio/client";
 
-import { defaultQuery, predicts } from "./utils/defaultQuery";
-import { formatTimeDate, generateToken } from './lib/func';
+
+// import { defaultQuery, predicts } from './utils/defaultQuery';
+import { generateToken } from './lib/func';
 import { HF } from './lib/text-to-image';
 import * as MODEL from './lib/ai-models';
 
-import { QueryInput } from "./components/QueryInput";
-import { PredictImage } from "./components/PredictImage";
-import { PredictGallery } from "./components/PredictGallery";
-import { Console } from "./components/Console";
+import { QueryInput } from './components/QueryInput';
+import { PredictImage } from './components/PredictImage';
+import { PredictGallery } from './components/PredictGallery';
+import { Console } from './components/Console';
 
 
 import { Header, Main, Footer, Wrapper } from '@/components';
@@ -26,9 +26,11 @@ import './styles.scss';
 
 export default function Home() {
   const [loading, isLoading] = useState(false);
-  const [predict, setPredict] = useState(null); //predicts.wizmodel
-  const [prompt, setPrompt] = useState("a cute cat");
-  const [value, setValue] = useState("");
+  // const [predict, setPredict] = useState(null); //predicts.wizmodel
+  const [prompt, setPrompt] = useState('a cute cat');
+  const [value, setValue] = useState('');
+
+  const [predict, setPredict] = useState(false); //set start gallery
 
   const [predictions, setPredictions] = useState(null); //predicts.wizmodel
 
@@ -36,25 +38,27 @@ export default function Home() {
 
   const queryChain = [
     MODEL.SD21,
-    MODEL.SDXL,
     MODEL.SD15,
     MODEL.SD21BASE,
     MODEL.DALLE3V2,
     MODEL.JUGGERNAUT_XL_7,
     MODEL.JUGGERNAUT_XL_9,
     MODEL.LORA,
+    MODEL.SDXL
   ];
 
   useEffect(() => {
-    console.log(predict);
-  }, []);
+    console.log("Predictions started:", predict);
+  }, [predict]);
 
   useEffect(() => {
     if (loading) return isLoading(false);
   }, [predict, predictions]);
 
   const textToImage = async (prompt) => {
+    setPredictions(null);
     isLoading(true);
+    setPredict(true);
 
     let images = [];
 
@@ -146,7 +150,7 @@ export default function Home() {
             <>
               <SamplePredictions loading={loading} changePrompt={changePrompt} />
               {/* <Predictions loading={loading} predictions={predictions} /> */}
-              <PredictGallery loading={loading} predictions={predictions} />
+              <PredictGallery loading={loading} predictions={predictions} predict={predict} results={6}/>
               <Console loading={loading} predictions={predictions} />
             </>
           </section>
@@ -242,7 +246,7 @@ const SamplePredictions = ({ loading, changePrompt }) => {
 
 
 
-const Bin = () => (
+export const Bin = () => (
   <div className="Gallery PredictsSet">
     {loading && <Overlay />}
 
