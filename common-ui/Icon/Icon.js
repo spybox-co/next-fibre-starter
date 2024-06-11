@@ -1,7 +1,9 @@
 "use client"
 import React from 'react';
 
-import * as FeatherIconPack from 'react-feather'
+import * as FeatherIconPack from 'react-feather';
+
+// import * as icons from "react-feather";
 
 const IconComponent = ({ type, settings }) => {
   return React.createElement(FeatherIconPack[type], settings);
@@ -26,5 +28,12 @@ export default function Icon({ type, className, size, stroke }) {
   }
   const iconName = type ? createNameForReactComponent(type) : 'Circle';
 
+
+
+  
+
   return <IconComponent type={iconName} settings={attributes} /> 
+
+  // const IconComponent = icons[type];
+  // return <IconComponent {...attributes} /> 
 }

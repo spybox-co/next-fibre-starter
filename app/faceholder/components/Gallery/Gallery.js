@@ -92,7 +92,7 @@ export const Gallery = () => {
         glyph="↓"
         label="Load more"
         onClick={loadMore} 
-        block="nearest" 
+        block="nearest"
       />
     </div>
   );
@@ -104,7 +104,7 @@ export const Gallery = () => {
   return (
     <Grid className="Gallery-module">
       <section id="browse" className="BrowsePhotos">
-        {/* <CommandBar results={count} /> */}
+        <CommandBar results={count} />
         <div className="List-container">
           <ul className="Gallery List">
             <ListComponent {...listProps} />

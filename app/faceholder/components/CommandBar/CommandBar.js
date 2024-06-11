@@ -11,7 +11,7 @@ import { store } from '@/app/faceholder/context/store.js';
 
 import { Button, IconButton, InlineLoading } from '@/common-ui';
 
-
+import './CommandBar.scss';
 
 
 
@@ -39,7 +39,7 @@ export const CommandBar = ({ results }) => {
         kind="secondary"
         className="RefreshButton"
         onClick={pageReload}
-        renderIcon={isLoading ? null : 'RotateLeft'}
+        renderIcon={isLoading ? null : 'RotateCcw'}
         disabled={isLoading}
       >
         {isLoading ? <InlineLoading /> : `Refresh`}

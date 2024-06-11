@@ -46,9 +46,9 @@ const Button = (props) => {
       disabled={disabled}
       {...other}
     >
-      {!children && label}
+      {!children && label && (<span>{label}</span>)}
       {!hasOnlyIcon && children}
-      {!children && !label && <span>Button</span>}
+      {!hasOnlyIcon && !children && !label && <span>Button</span>}
       {renderIcon && RenderIconComponent(renderIcon)}
     </Component>
   );

@@ -8,7 +8,7 @@ import { Link } from './Link';
 
 // import { Embedded } from './Embedded';
 import Image from './Image';
-// import Input from './Input';
+import Input from './Input';
 import Icon from './Icon';
 // import { Leadspace } from './Leadspace';
 import { InlineLoading } from './Loading';
@@ -33,7 +33,7 @@ export {
   // ImageCard, 
   Image,
   InlineLoading,
-  // Input
+  Input,
   Icon,
   Link,
   // Leadspace,

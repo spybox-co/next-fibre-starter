@@ -12,12 +12,12 @@ const romanDate = () => {
   return ArabicToRoman(date);
 }
 
-export const Footer = ({ name }) => (
+export const Footer = ({ appName }) => (
   <footer className="Footer" tabIndex={0}>
     <Wrapper>
       <div className="Footer-container">
         <p className="productive-paragraph-02 monoblock">
-          {settings.appName || name}
+          {appName || settings.appName}
         </p>
         <p aria-label={`Copyright ${date}`}>{`© ${romanDate()}`}</p>
         <br />

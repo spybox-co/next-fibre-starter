@@ -8,21 +8,28 @@ import {
 } from 'react';
 
 
-import { Grid, Row } from '../Grid';
-import { Link } from '../Link';
+// import { Grid, Row } from '../Grid';
+// import { Link } from '../Link';
 
-// import './BumperSection.scss';
 
 export default function BumperSection(props) {
   const { 
     asLink,
     block = 'start',
+    className,
     children,
     glyph,
+    enabledSize,
+    hoveredSize,
     href,
+    heading,
+    kind,
     label = 'Bumper Section action name',
     onClick,
+    noGlyph,
     wrapper,
+    section,
+    tile
   } = props;
 
 
@@ -53,15 +60,29 @@ export default function BumperSection(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
 
+  const bumperKind =
+    (kind === 'primary' && 'fbr--bumper--primary') ||
+    (kind === 'secondary' && 'fbr--bumper--secondary') ||
+    (kind === 'tertiary' && 'fbr--bumper--tertiary') ||
+    (kind === 'ghost' && 'fbr--bumper--ghost') ||
+    (kind === 'danger' && 'fbr--bumper--danger') ||
+    (kind === 'warning' && 'fbr--bumper--warning') ||
+    (kind === 'green' && 'fbr--bumper--green') ||
+    (kind === 'orange' && 'fbr--bumper--orange') ||
+    // To-Do
+    (kind && `fbr--bumper--custom ${kind}`);
+
   const classes = {
-    root: ['BumperSection', 'fbr--bumper-section', wrapper && 'fbr--grid', hovered ? 'hover' : ''].join(' ').trim(),
-    container: ['fbr--bumper-section--container'].join(' ').trim()
+    root: [ className, 'BumperSection', section ? 'fbr--bumper--section' : 'fbr--bumper', tile && 'fbr--bumper--tile', kind ? bumperKind : (!tile ? 'fbr--bumper--secondary' : ''), wrapper && 'fbr--grid', hovered ? 'hover' : ''].join(' ').trim(),
+    container: ['fbr--bumper--container'].join('').trim(),
   };
 
   let isLink;
   // if (href !== undefined) {
   //   isLink = href.charAt(0) === '/';
   // }
+
+  const customAttributes = !hovered ? { maxHeight: enabledSize } : { maxHeight: hoveredSize };
 
   const BumperSectionContainer = (
     <div
@@ -70,16 +91,27 @@ export default function BumperSection(props) {
       {...eventHandlers}
       ref={bumpRef}
       className={classes.root}
+      style={ enabledSize && hoveredSize ? customAttributes : null}
     >
-      <div className={classes.container}>
-        <Glyph type={glyph} />
+      <>
+        {tile && heading && (
+            <div className="heading">
+              {heading}
+            </div>
+          )}
 
-        
-        {label && !children && (<h4 className="label">{label}</h4>)}
-        {children}
+        <div className={classes.container}>
           
-  
-      </div>
+
+          {!noGlyph && !tile && (<Glyph type={glyph} />)}
+          {label && !children && !tile && (
+            <h4 className="label">{label}</h4>
+          )}
+          {children}
+            
+    
+        </div>
+      </>
     </div>
   );
 
@@ -87,12 +119,11 @@ export default function BumperSection(props) {
   // let BumperSectionComponent;
 
 
-  if (asLink) {
+  if (href) {
     return (
       <a
         href={href}
       >
-
         {BumperSectionContainer}
       </a>
     );

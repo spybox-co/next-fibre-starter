@@ -1,0 +1,61 @@
+.container {
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  /*
+	display: grid;
+	grid-template: auto / 1fr 50px;
+  */
+	overflow: hidden;
+	position: relative;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+	/* Essential */
+	-ms-overflow-style: none;
+	overflow: auto;
+	scrollbar-width: none;
+	/* Presentational */
+
+}
+
+.content::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar {
+  position: absolute;
+  height: 100%;
+	/* 
+  display: grid;
+	gap: 1rem;
+	grid-auto-flow: row;
+	grid-template: auto 1fr auto / 1fr; 
+  */
+	padding: 0.25rem;
+	/* place-items: center; */
+  z-index: 10000;
+}
+
+.track-and-thumb {
+	display: block;
+	height: 100%;
+	position: relative;
+	width: 16px;
+}
+
+.track {
+	bottom: 0;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+  width: 0.5rem;
+}
+
+.thumb {
+	position: absolute;
+  width: 0.5rem;
+  background: cyan;
+}

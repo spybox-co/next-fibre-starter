@@ -1,3 +1,5 @@
+import Scrollbar from './Scrollbar';
+
 export default function App(props) {
   const {
     children,
@@ -10,6 +12,8 @@ export default function App(props) {
   const classes = ["App", title].join(" ").trim();
 
   return (
-    <div className={classes}>{children}</div>
+    // <Scrollbar>
+      <div className={classes}>{children}</div>
+    // </Scrollbar>
   )
 }

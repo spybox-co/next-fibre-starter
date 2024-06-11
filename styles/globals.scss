@@ -82,11 +82,14 @@
   padding: 0;
   margin: 0;
 }
+html {
+  font-size: 16px;
+}
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 body {
@@ -115,18 +118,18 @@ a {
 
 // to migrate to d grid layout system
 
-.Wrapper .column {
-  @media (max-width: 166rem) {
-    width: calc(50% - 1rem);
-  }
-  @media (max-width: 99rem) {
-    width: calc(50% - 1rem);
-  }
-  @media (max-width: 66rem) {
-    width: calc(66% - 1rem);
-  }
-  @media (max-width: 42rem) {
-    width: 100%;
-  }
-  width: calc(33% - 1rem);
-}
+// .Wrapper .column {
+//   @media (max-width: 166rem) {
+//     width: calc(50% - 1rem);
+//   }
+//   @media (max-width: 99rem) {
+//     width: calc(50% - 1rem);
+//   }
+//   @media (max-width: 66rem) {
+//     width: calc(66% - 1rem);
+//   }
+//   @media (max-width: 42rem) {
+//     width: 100%;
+//   }
+//   width: calc(33% - 1rem);
+// }

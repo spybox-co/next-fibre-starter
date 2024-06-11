@@ -1,0 +1,12 @@
+@import '@/styles/fibre.scss';
+
+.module {
+  pre {
+    margin: 0 -1rem 1px -1rem;
+    color: $gray-30;
+    background-color: $gray-100;
+    padding: 1rem;
+    // margin: 0 0 1px;
+    overflow-x: hidden;
+  }
+}

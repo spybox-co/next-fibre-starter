@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <Header />
     
-      <Main wrapper>
+      <Main>
         <Wrapper>
           <div className={styles.center}>
             <Image
@@ -33,32 +33,27 @@ export default function Home() {
             />
           </div>
         </Wrapper>
-        <Wrapper>
-          {/* <NextLink href="/glyphic">GLYPHIC App</NextLink> */}
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/glyphic">GLYPHIC App</Link>
-            </li>
-          </ul>
-        </Wrapper>
+
+        <Grid>
+          <Row>
+            <Card col={4} ratio="1x1" href="/faceholder" title="Faceholder" subtitle="Faces that not exist" noGutter dark />
+            <Card col={4} href="/glyphic" title="Glyphic" subtitle="Cool symbols app" noGutter dark >GLYPHIC IS YOUR ONE-STOP SOLUTION FOR COPYING GLYPHS AND SPECIAL CHARACTERS EFFORTLESSLY</Card>
+            <Card col={4} href="/create" title="Create" subtitle="Generated images from text" noGutter dark >GENERATE SOME IMAGES BY AI AND ENJOY CREATIVITY WITH PROMPTING</Card>
+          </Row>
+
+        </Grid>
         <Grid>
           <Row>
             <Column col={4}>
-              <Card href="/glyphic" title="Glyphic" subtitle="Cool symbols app">GLYPHIC IS YOUR ONE-STOP SOLUTION FOR COPYING GLYPHS AND SPECIAL CHARACTERS EFFORTLESSLY</Card>
-            </Column>
-            <Column col={4}>
-              <Card href="/faceholder" title="Faceholder" subtitle="Faces that not exist"/>
-            </Column>
-            <Column col={4}>
-              <Card title="App" subtitle="See All" action="Download" />
+              <Card title="App" subtitle="See All" action="Download" dark />
             </Column>
           </Row>
         </Grid>
         <Wrapper>
           <div>
+            <Button hasOnlyIcon kind="primary" renderIcon="arrow-up" />
+            <Button hasOnlyIcon renderIcon="arrow-up" />
+            <Button label="Click me!" renderIcon="arrow-up" />
             <Button kind="primary" renderIcon="ExternalLink">Click me!</Button>
             <Button renderIcon="arrow-up">Click me!</Button>
             <Button anchor to='https://www.kiepuszewski.com' renderIcon="external-link">Click me!</Button>

@@ -1,0 +1,47 @@
+@import '@/styles/fibre.scss';
+
+.module {
+  position: sticky;
+  top: -1rem;
+  padding: 2rem 0 1rem;
+  margin: 0 -1rem;
+  z-index: 4000;
+  &::before {
+    background: var(--background);
+    content: "";
+    height: 1rem;
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    z-index: 3000;
+  }
+
+  // div {
+  //   top: 1rem;
+  //   position: sticky;
+  // }
+}
+[data-sticky="true"] {
+  .container {
+    box-shadow: $elev-500;
+  }
+}
+// [data-sticky="false"] {
+//   .container {
+//     box-shadow: $elev-100;
+//   }
+// }
+.container {
+  width: 100%;
+  display: flex;
+  transition: box-shadow 300ms;
+  z-index: 4500;
+}
+
+.promptInput {
+  flex-grow: 1;
+}
+
+.submit {
+  // margin-left: 1rem;
+}

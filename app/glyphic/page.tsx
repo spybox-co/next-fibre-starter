@@ -127,10 +127,10 @@ const About = () => {
                 
                 Enjoy!
               </p>
-              <a className="Link" href="#top" role="button">
+              {/* <a className="Link" href="#top" role="button">
                 <span className="responsive-paragraph-02 monoblock">Back to top</span>
                 <span className="glyph responsive-paragraph-02 monoblock" aria-hidden="true">↑</span>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

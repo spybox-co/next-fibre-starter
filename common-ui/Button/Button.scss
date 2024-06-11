@@ -29,6 +29,10 @@
   border-style: solid;
   border-width: 1px;
 
+  span {
+    font-size: inherit;
+  }
+
   &__icon {
     position: absolute;
     flex-shrink: 0;

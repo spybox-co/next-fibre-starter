@@ -1,36 +1,26 @@
-export default Input(props) {
+export default function Input(props) {
   const { 
     active,
+    className,
     label,
     description, 
     // To-Do: rename this feature in the component
     inputValue,
+    minLength,
+    maxLength,
+    placeholder,
     value,
     ...other 
   } = props;
   // const { active, value } = this.state;
 
   const classes = {
-    main: ['fbr--input', active && 'active'].join(' ').trim();
-  };
-
-  const style = {
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: `5rem`
-    },
-    description: {
-      fontSize: `0.75rem`,
-      margin: `0.5rem 0`,
-      width: `100%`,
-      textAlign: `right`
-    }
+    main: [className, 'fbr--input', active && 'active'].join(' ').trim()
   };
 
   return (
-    <div className={classes.main} style={style.root}>
-      <div className={`fbr--input-container`}>
+    <div className={classes.main}>
+      <div className={`fbr--input__container`}>
         {label ? (
           <label className="fbr--input_label">{label}</label>
         ) : null}
@@ -40,6 +30,9 @@ export default Input(props) {
           debounceTimeout={500}
           type="number"
           value={value}
+          placeholder={placeholder}
+          minlength={minLength}
+          maxlength={maxLength}
           // onFocus={(event) => {
           //   this.setState({ active: true });
           //   event.target.select();
@@ -61,3 +54,4 @@ export default Input(props) {
       </div>
     </div>
   );
+}
