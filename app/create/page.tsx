@@ -148,6 +148,7 @@ export default function Home() {
 
           <section>
             <>
+              {loading && <Overlay />}
               <SamplePredictions loading={loading} changePrompt={changePrompt} />
               {/* <Predictions loading={loading} predictions={predictions} /> */}
               <PredictGallery loading={loading} predictions={predictions} predict={predict} results={6}/>
@@ -173,7 +174,6 @@ export default function Home() {
     </>
   );
 };
-
 
 
 
@@ -205,7 +205,7 @@ const LeadSpace = () => (
   </section>
 );
 
-const Overlay = () => <div className="ContentOverlay" />;
+
 
 const SamplePredictions = ({ loading, changePrompt }) => {
   const prompts = [
@@ -244,46 +244,7 @@ const SamplePredictions = ({ loading, changePrompt }) => {
 };
 
 
-
-
-export const Bin = () => (
-  <div className="Gallery PredictsSet">
-    {loading && <Overlay />}
-
-    <ul>
-      {predict?.output && (
-        <li>
-          <PredictImage
-            source={`data:image/png;base64,${predict.output.images[0]}`}
-            altText="Generated image with prompt"
-            downloadData={`created image  - ${predict.id} - ${predict.input.prompt}`}
-          />
-          {/* <code>
-        <p>Image type: {JSON.stringify(image.type)}</p>
-        <p>Prompt: {JSON.stringify(image.prompt)}</p>
-        <p>ID: {JSON.stringify(image.id)}</p>
-        <p>Time of creation: {JSON.stringify(image.time)}</p>
-        <p>Endpoint: {JSON.stringify(image.endpoint)}</p>
-        <p>Time of creation: {JSON.stringify(image.time)}</p>
-        <p>FN Index: {JSON.stringify(image.fn_index)}</p>
-      </code> */}
-        </li>
-      )}
-      {image && (
-        <li>
-          <PredictImage
-            source={`${image}`}
-            altText="Generated image with prompt"
-            downloadData={`created image  - ${generateToken(
-              16,
-            )} - ${prompt}`}
-          />
-        </li>
-      )}
-    </ul>
-  </div>
-)
-
+const Overlay = () => <div className="ContentOverlay" />;
 
 
  

@@ -37,3 +37,23 @@ export const ArabicToRoman = number => {
   }
   return roman;
 };
+
+
+
+// Text Orphans to next line script 
+export const TextFormatter = () => {
+  function lastSingleLetterToNewLine(el) {
+    let result;
+    el.forEach(element => {
+       
+      if(!element.innerHTML.match(/[{}]|<script|^\n$/gi)){
+        result = element.innerHTML.replace(/ (.) /gi, " "+'\$1'+"&nbsp;");
+      }
+      element.innerHTML = result;
+      //console.log(result);
+    });
+  }
+  let el = document.querySelectorAll('p, .paragraph, span, .Heading');
+  //console.log(el)
+  lastSingleLetterToNewLine(el);  
+}

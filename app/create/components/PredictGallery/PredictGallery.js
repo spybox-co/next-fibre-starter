@@ -91,6 +91,8 @@ export const PredictGallery = ({ loading, predictions, predict, results }) => {
           </div>
         </pre>
       )}
+
+
       {images && (
         <>
           <h3>Results with success {images.filter( i => i.success === true ).length} of all {images.length}</h3>
@@ -98,7 +100,10 @@ export const PredictGallery = ({ loading, predictions, predict, results }) => {
         </>
       )}
 
-
+      {/* 
+          @NEED TO BE IMPROVED
+          Solution returns always 1 results more than presented in gallery, see console and numbers in heading
+      */}
 
       <ul className={classes.list}>
 

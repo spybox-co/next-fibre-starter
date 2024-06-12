@@ -1,6 +1,6 @@
 import * as MODEL from "./ai-models";
 
-const hf_token = "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";
+const hf_token = process.env.HUGGING_FACE_API_TOKEN;
 
 export const HF = async (api, prompt, accessToken) => {
   console.log(api);
@@ -12,6 +12,10 @@ export const HF = async (api, prompt, accessToken) => {
       wait_for_model: true,
     },
   };
+
+  if (!hf_token) {
+    throw new Error("HUGGING_FACE_API_TOKEN environment variable is not set. See README.md for instructions on how to set it.");
+  }
 
   const response = await fetch(api || MODEL.SDXL, {
     headers: {
@@ -70,17 +74,6 @@ export const HF = async (api, prompt, accessToken) => {
     //   resolve(`data:image/jpeg;base64,${base64data}`); // or return base64data);
     // };
   });
-
-  // return { input: prompt, output: image };
-  // const mimeType = response.headers["content-type"];
-
-  // const result = response.data;
-
-  // const base64data = Buffer.from(result).toString("base64");
-
-  // const img = `data:${mimeType};base64,` + base64data;
-
-  // return img;
 };
 
 export const HF_OLD = async (api, prompt, accessToken) => {
