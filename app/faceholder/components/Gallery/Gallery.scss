@@ -3,7 +3,11 @@
 $gutter: 1px;
 
 .Gallery-module {
+  --color: #{$gray-20};
+  --background: #{$gray-90};
   min-height: 62.5vw;
+  color: var(--color);
+  background-color: var(--background);
 }
 .Gallery {
   margin-top: 1rem;

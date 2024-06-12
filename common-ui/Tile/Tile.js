@@ -19,11 +19,11 @@ export default function Tile(props) {
     title, 
     dark, 
     col, 
-    noGutter, 
+    noGutter = true, 
     gutter, 
     gutterLeft, 
     gutterRight, 
-    ratio 
+    ratio = false
   } = props;
 
   const columnProps = {
@@ -105,13 +105,6 @@ export default function Tile(props) {
   }
 }
 
-Tile.defaultProps = {
-  ratio: false,
-  noGutter: true,
-  // gutter: false,
-  // subtitle: undefined,
-  // title: 'Title',
-};
 
 
 export const ClickableTile = (props) => {
@@ -124,12 +117,12 @@ export const ClickableTile = (props) => {
     subtitle, 
     title,
     col, 
-    noGutter, 
+    noGutter = true, 
     gutter, 
     gutterLeft, 
     gutterRight, 
-    spacing,
-    ratio 
+    spacing = false,
+    ratio = false
   } = props;
 
 
@@ -158,15 +151,6 @@ export const ClickableTile = (props) => {
   );
 }
 
-ClickableTile.defaultProps = {
-  ratio: false,
-  noGutter: true,
-  spacing: false
-  // gutter: false,
-  // subtitle: undefined,
-  // title: 'Title',
-};
-
 
 export const StaticTile = (props) => {
 
@@ -177,12 +161,12 @@ export const StaticTile = (props) => {
     subtitle, 
     title,
     col, 
-    noGutter, 
+    noGutter = true, 
     gutter, 
     gutterLeft, 
     gutterRight, 
-    spacing,
-    ratio 
+    spacing = false,
+    ratio = false
   } = props;
 
 
@@ -220,14 +204,6 @@ export const StaticTile = (props) => {
   );
 }
 
-StaticTile.defaultProps = {
-  ratio: false,
-  noGutter: true,
-  spacing: false
-  // gutter: false,
-  // subtitle: undefined,
-  // title: 'Title',
-};
 
 
 

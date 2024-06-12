@@ -16,7 +16,8 @@
   }
 
   &-container {
-    background-color: $background;
+    color: var(--color);
+    background-color: var(--background);
     display: flex;
     // width: 100%;
     padding: 2rem 2rem 0;

@@ -14,7 +14,7 @@ export const PredictImage = (props) => {
   const { 
     source,
     image, 
-    altText, 
+    altText = "null", 
   } = props;
 
 

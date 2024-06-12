@@ -45,7 +45,7 @@ export const Console = ({ loading, predictions }) => {
           {!loading && images && (
             <div>
               {images.map((image, i) => (
-                <pre>
+                <pre key={i}>
                   <small>Image index: {i}</small>
                   <br />
                   <small>{JSON.stringify(image, null, 2)}</small>

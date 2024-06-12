@@ -4,7 +4,7 @@ export default function RatioObject(props) {
 
   const { 
     children,
-    ratio,
+    ratio = true,
     className,
     // Todo: to consider these properties
     col, 
@@ -30,8 +30,4 @@ export default function RatioObject(props) {
       </div>
     </div>
   )
-}
-
-RatioObject.defaultProps = {
-  ratio: true
 }

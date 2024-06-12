@@ -26,7 +26,8 @@ const overlayStyles = {
   left: 0,
   filter: 'blur(16px)',
   transition: 'opacity ease-in 1000ms',
-  clipPath: 'inset(0)'
+  clipPath: 'inset(0)',
+  zIndex: 1
 };
 
 export default function Image(props) {
@@ -34,7 +35,7 @@ export default function Image(props) {
   const { 
     overlaySrc, 
     src, 
-    alt,
+    alt = 'Add Alt Text',
     ...others 
   } = props;
 
@@ -51,9 +52,13 @@ export default function Image(props) {
     isBase64 = src.includes('base64');
   }
 
+  const classes = {
+    root: 'fbr--image', // styles.container
+  }
+
   if (isBase64) {
     return (
-      <div className={styles.container}>
+      <div className={classes.root}>
         {/* <span style={{ position: 'absolute' }}>Jest bejz 64</span> */}
         <img
           {...filteredProps}
@@ -80,14 +85,14 @@ export default function Image(props) {
     );
   } else {
     return (
-      <div className={styles.container}>
+      <div className={classes.root}>
         <img
           {...filteredProps}
           onLoad={() => {
             setState({ highResImageLoaded: true });
           }}
           src={`${src}?q=50`}
-          alt={highResImageLoaded && `${alt}`}
+          alt={`${alt}`}
           {...others}
         />
 

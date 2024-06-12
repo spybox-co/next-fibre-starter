@@ -1,10 +1,10 @@
 
 // fbr--skeleton__placeholder--flex
 
-const Skeleton = ({ type }) => {
+export default function Skeleton(props) {
+  const { type } = props;
+
   return (
     <div className="fbr--skeleton__placeholder fbr--skeleton__placeholder--flex" />
   );
 };
-
-export default Skeleton;
