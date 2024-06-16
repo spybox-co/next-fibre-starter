@@ -62,7 +62,7 @@ export const Glyph = (props) => {
           <span className="glyph-symbol responsive-heading-04">{glyph}</span>
           <div className="glyph-code" tabIndex={-1} aria-hidden="true">{symbol}</div>
           <div className="glyph-action" tabIndex={-1} aria-hidden="true">
-            <Icon type="Copy" stroke={1} />
+            <Icon type="Copy" stroke={1.5} size={16} />
           </div>
         </a>
       </div>

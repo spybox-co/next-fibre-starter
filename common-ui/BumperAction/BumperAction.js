@@ -12,10 +12,10 @@ import {
 // import { Link } from '../Link';
 
 
-export default function BumperSection(props) {
+export default function BumperAction(props) {
   const { 
-    asLink,
-    block = 'start',
+    // asLink,
+    // block = 'start',
     className,
     children,
     glyph,
@@ -24,11 +24,11 @@ export default function BumperSection(props) {
     href,
     heading,
     kind,
-    label = 'Bumper Section action name',
+    label = 'Bumper action name',
     onClick,
     noGlyph,
     wrapper,
-    section,
+    section = false,
     tile
   } = props;
 
@@ -36,13 +36,14 @@ export default function BumperSection(props) {
   const bumpRef = useRef(null);
   const [hovered, setHovered] = useState();
 
-  
-  const scrollSettings = {
-    behavior: 'smooth',
-    block: block // start, center, end, or nearest. Defaults to start
-  };
-  const executeScroll = () => bumpRef.current.scrollIntoView(scrollSettings);
 
+  // const scrollSettings = {
+  //   behavior: 'smooth',
+  //   block: block // start, center, end, or nearest. Defaults to start
+  // };
+  
+  // const executeScroll = () => bumpRef.current.scrollIntoView(scrollSettings);
+  
   // run this function from an event handler or an effect to execute scroll
   const eventHandlers = useMemo(
     () => ({
@@ -56,12 +57,12 @@ export default function BumperSection(props) {
     []
   );
 
-  useEffect(() => {
-    if (hovered) {
-      executeScroll();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hovered]);
+  // useEffect(() => {
+  //   if (hovered) {
+  //     executeScroll();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [hovered]);
 
   const bumperKind =
     (kind === 'primary' && 'fbr--bumper--primary') ||
@@ -76,7 +77,7 @@ export default function BumperSection(props) {
     (kind && `fbr--bumper--custom ${kind}`);
 
   const classes = {
-    root: [ className, 'BumperSection', section ? 'fbr--bumper--section' : 'fbr--bumper', tile && 'fbr--bumper--tile', kind ? bumperKind : (!tile ? 'fbr--bumper--secondary' : ''), wrapper && 'fbr--grid', hovered ? 'hover' : ''].join(' ').trim(),
+    root: [ className, 'BumperAction', section ? 'fbr--bumper--section' : 'fbr--bumper', tile && 'fbr--bumper--tile', kind ? bumperKind : (!tile ? 'fbr--bumper--secondary' : ''), wrapper && 'fbr--grid', hovered ? 'hover' : ''].join(' ').trim(),
     container: ['fbr--bumper--container'].join('').trim(),
   };
 
@@ -87,7 +88,7 @@ export default function BumperSection(props) {
 
   const customAttributes = !hovered ? { maxHeight: enabledSize } : { maxHeight: hoveredSize };
 
-  const BumperSectionContainer = (
+  const BumperActionContainer = (
     <div
       role="button"
       onClick={onClick}
@@ -119,7 +120,7 @@ export default function BumperSection(props) {
   );
 
   // Doesn't work as in Tile component - I don't know why?
-  // let BumperSectionComponent;
+  // let BumperActionComponent;
 
 
   if (href) {
@@ -127,11 +128,11 @@ export default function BumperSection(props) {
       <a
         href={href}
       >
-        {BumperSectionContainer}
+        {BumperActionContainer}
       </a>
     );
   } else {
-    return BumperSectionContainer;
+    return BumperActionContainer;
   }
 };
 

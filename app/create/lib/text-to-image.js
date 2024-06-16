@@ -3,7 +3,7 @@ import * as MODEL from "./ai-models";
 const hf_token = process.env.HUGGING_FACE_API_TOKEN;
 
 export const HF = async (api, prompt, accessToken) => {
-  console.log(api);
+  console.log(api.replace('https://api-inference.huggingface.co/models/', ''));
   console.log(prompt);
 
   const inputData = {
@@ -27,8 +27,7 @@ export const HF = async (api, prompt, accessToken) => {
     body: JSON.stringify(inputData),
     responseType: "arraybuffer",
   });
-  // const result = await response.json();
-
+  
   const result = await response.blob();
   // return result;
 
@@ -76,9 +75,49 @@ export const HF = async (api, prompt, accessToken) => {
   });
 };
 
+
+export function readBlob(blob) {
+  return new Promise((resolve, reject) => {
+   const reader = new FileReader();
+ 
+   reader.onend = reject;
+   reader.onabort = reject;
+   reader.onload = () => resolve(reader.result);
+   reader.readAsDataURL(new Blob([blob], { type: blob.type }));
+  });
+ }
+/*
+  HUGGING FACE Interface API
+
+  async function query(data) {
+    const response = await fetch(
+      "https://api-inference.huggingface.co/models/vendor/vendor-ai-model-name",
+      {
+        headers: { Authorization: "Bearer hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+    const result = await response.blob();
+    return result;
+  }
+  query({"inputs": "Astronaut riding a horse"}).then((response) => {
+    // Use image
+  });
+*/
+
+
+
+
+
+
 export const HF_OLD = async (api, prompt, accessToken) => {
-  console.log(api);
+  console.log(api.replace('https://api-inference.huggingface.co/models/', '').split('/')[1]);
   console.log(prompt);
+
+  if (!hf_token) {
+    throw new Error("HUGGING_FACE_API_TOKEN environment variable is not set. See README.md for instructions on how to set it.");
+  }
 
   async function query(data) {
     const response = await fetch(api || MODEL.SDXL, {
@@ -89,9 +128,20 @@ export const HF_OLD = async (api, prompt, accessToken) => {
       body: JSON.stringify(data),
     });
     const result = await response.blob();
-    return result;
+    // return result;
+
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+  
+      reader.onend = reject;
+      reader.onabort = reject;
+
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(result);
+    });
   }
   query({ inputs: prompt }).then((response) => {
-    return response;
+    return response; 
+    // console.log(response, typeof response)
   });
 };

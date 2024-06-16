@@ -34,6 +34,8 @@ section {
   min-height: 30vh;
 }
 
+// To-do: remove
+
 .SamplePredictions {
   font-size: 1rem;
   display: flex;
@@ -53,12 +55,19 @@ section {
 }
 
 .TagItem {
+  font-size: 1rem;
+  font-family: inherit;
   margin: 0 0.25rem 0.25rem;
   padding: 0.25rem 0.5rem;
   display: inline-flex;
   border: $gray-60 1px solid;
   border-radius: 0.5rem;
   background-color: transparent;
+
+  button {
+    border: 0;
+  }
+  
   &:hover {
     background-color: $white;
   }
@@ -77,16 +86,18 @@ section {
       }
     }
   }
-}
-
-.tag {
-  // text-decoration: underline;
-  cursor: pointer;
-  &:hover {
-    color: blue;
-    text-decoration: none;
+  .tag {
+    font-size: inherit;
+    // text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: blue;
+      text-decoration: none;
+    }
   }
 }
+
+
 
 .ContentOverlay {
   position: absolute;

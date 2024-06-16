@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { useEffect, useContext } from 'react';
 import { store } from '@/app/faceholder/context/store.js';

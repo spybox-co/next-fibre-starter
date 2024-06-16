@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, memo, useMemo, Suspense, lazy } from 'react';
 
 import { Button, IconButton } from '@/common-ui';
 import { Skeleton } from '@/common-ui';
@@ -13,20 +13,24 @@ import styles from './PredictImage.module.scss';
 export const PredictImage = (props) => {
   const { 
     source,
-    image, 
     altText = "null", 
   } = props;
 
+  const [image, setImage] = useState(null);
 
+
+  // const Image = memo(function Image({ src, className, alt }) {
+  //   return <img src={src} className={className} alt={alt} data-memo="memonized component" />;
+  // });
 
   if (source) {
     return (
       <Suspense fallback={<Skeleton />} >
 
-        <Image className={styles.image} src={source.output || image} alt={altText} />
+        <Image className={styles.image} src={source.output} alt={altText} />
 
         <div className={styles.actions}>
-          <IconButton anchor href={source.output || image} download={`created image - ${source.id} - ${source.input}`} renderIcon="Download" />
+          <IconButton anchor href={source.output} download={`created image - ${source.id} - ${source.input}`} renderIcon="Download" />
         </div>
 
       </Suspense>

@@ -133,8 +133,8 @@ const PredictGaleryItem = (props) => {
   
   const col = {
     small: 4,  // of 4
-    medium: 8, // of 8
-    large: 6,  // of 12
+    medium: 4, // of 8
+    large: 4,  // of 12
     max: 3     // of 12
   }
 

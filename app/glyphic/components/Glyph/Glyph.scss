@@ -22,11 +22,12 @@
     z-index: 100;
     .glyph-action,
     .glyph-code {
+      color: $gray-30;
       display: block;
     }
   }
   &:active {
-    background-color: $gray-30;
+    background-color: $gray-70;
   }
   &:focus {
     outline: 2px solid $primary-color;
@@ -57,15 +58,14 @@
 
 .glyph-number,
 .glyph-code,
-.glyph-action{
+.glyph-action {
   position: absolute;
   display: none;
 }
 
 .glyph-number,
 .glyph-code {
-  top: 0;
-  color: $gray-60;
+  color: $blue-40;
   font-size: 0.75rem;
   padding: 0.5rem;
 }
@@ -73,14 +73,17 @@
   left: 0;
 }
 .glyph-code {
-  right: 0;
+  
+  bottom: 0;
+  left: 0;
 }
 .glyph-action {
-  bottom: 0;
+  color: $blue-40;
+  top: 0;
   right: 0;
   width: 2.5rem;
   height: 2.5rem;
-  padding: 1rem;
+  padding: 0.75rem;
   .spbx--icon {
     display: flex;
     width: 1rem;

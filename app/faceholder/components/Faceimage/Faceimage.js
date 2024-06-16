@@ -14,13 +14,13 @@ import './Faceimage.scss';
 
 export const Faceimage = ({
   source,
-  size,
+  size = 300,
   // delay,
   update,
-  download,
-  copy,
-  preview,
-  newscreen
+  download = true,
+  copy = false,
+  preview = false,
+  newscreen = false
 }) => {
   // const { state } = useContext(store);
   // const [source, setSource] = useState(null);
@@ -129,15 +129,6 @@ export const Faceimage = ({
     );
   }
 };
-
-Faceimage.defaultProps = {
-  size: 300,
-  download: true,
-  copy: false,
-  newscreen: false,
-  preview: false
-
-}
 
 const Item = ({ children, imageLoaded, data }) => {
   const classes = {

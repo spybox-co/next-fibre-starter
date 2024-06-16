@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { settings } from '@/utils/data';
-// import { StateProvider } from './context/store.js';
+import { StateProvider } from './context/store.js';
 
 import { App } from '@/components';
 
@@ -19,8 +19,8 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <StateProvider>
       <App appName={metadata.title}>{children}</App>
-    </>
+    </StateProvider>
   )
 }

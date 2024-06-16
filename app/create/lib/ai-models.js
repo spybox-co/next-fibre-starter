@@ -21,3 +21,15 @@ export const JUGGERNAUT_XL_9 =
 
 export const LORA =
   "https://api-inference.huggingface.co/models/openskyml/lcm-lora-sdxl-turbo";
+
+
+export const queryChain = [
+    SD21,
+    SD15,
+    SD21BASE,
+    DALLE3V2,
+    JUGGERNAUT_XL_7,
+    JUGGERNAUT_XL_9,
+    LORA,
+    SDXL
+  ];

@@ -6,9 +6,10 @@ import { createContext, useReducer } from 'react';
 // https://www.toptal.com/react/react-context-api
 
 const initialState = {
-  isCopied: false,
-  copiedElement: '',
-  refresh: false,
+  predictions: null,
+  predict: false,
+  prompt: '',
+  loading: false,
 };
 
 const store = createContext(initialState);
@@ -21,28 +22,60 @@ const StateProvider = ({ children }) => {
       case 'sample action #1':
         const newState = {
           ...state,
-          viewport: { ...state, someParameter: action.value }
+          sampleState: { ...state, someParameter: action.value }
         }; // do something with the action
         return newState;
 
-      case 'refresh':
+      case 'loading':
         return {
           ...state,
-          refresh: action.value
+          loading: action.value
         };
 
-      case 'set copied':
+      case 'reset':
+        return {
+          predictions: null,
+          predict: false,
+          prompt: '',
+          loading: false,
+        };
+
+      case 'set predict':
         return {
           ...state,
-          isCopied: action.value
+          predict: action.value
         };
 
-      case 'copied element':
-        const updateListItem = {
+
+      case 'start predict':
+        return {
           ...state,
-          copiedElement: action.value
+          predict: true
         };
-        return updateListItem;
+
+
+      case 'set prompt':
+        return {
+          ...state,
+          prompt: action.value
+        };
+
+      case 'change prompt':
+        return {
+          predictions: null,
+          predict: true,
+          prompt: action.value,
+          loading: true,
+        };
+
+
+
+      case 'set predictions':
+        const updateSetPredictions = {
+          ...state,
+          predictions: action.value
+        };
+        return updateSetPredictions;
 
       default:
         console.warn('No dispatchEvent set!');

@@ -1,17 +1,18 @@
 
 'use client';
 
-// import Replicate from "replicate";
-import { useState, useEffect, useCallback } from "react";
+
+import { useState, useEffect, useContext } from 'react';
+import { store } from './context/store.js';
 
 
 // import { defaultQuery, predicts } from './utils/defaultQuery';
 import { generateToken } from './lib/func';
-import { HF } from './lib/text-to-image';
+import { HF, HF_OLD } from './lib/text-to-image';
 import * as MODEL from './lib/ai-models';
 
 import { QueryInput } from './components/QueryInput';
-import { PredictImage } from './components/PredictImage';
+import { PromptsTags } from './components/PromptsTags';
 import { PredictGallery } from './components/PredictGallery';
 import { Console } from './components/Console';
 
@@ -25,16 +26,20 @@ import { BumperSection } from '@/common-ui';
 import './styles.scss';
 
 export default function Home() {
+  const { state, dispatch } = useContext(store);
+
+  const { predict, predictions, prompt } = state;
+  
   const [loading, isLoading] = useState(false);
   // const [predict, setPredict] = useState(null); //predicts.wizmodel
-  const [prompt, setPrompt] = useState('a cute cat');
+  // const [prompt, setPrompt] = useState('a cute cat');
   const [value, setValue] = useState('');
 
-  const [predict, setPredict] = useState(false); //set start gallery
+  // const [predict, setPredict] = useState(false); //set start gallery
 
-  const [predictions, setPredictions] = useState(null); //predicts.wizmodel
+  // const [predictions, setPredictions] = useState(null); //predicts.wizmodel
 
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
 
   const queryChain = [
     MODEL.SD21,
@@ -48,17 +53,35 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    console.log("Predictions started:", predict);
+    if (predict) {
+      console.log("Predictions started:", predict);
+      textToImage(prompt);
+    }
+    
   }, [predict]);
+
+  // useEffect(() => {
+  //   console.log("context state update", state);
+  // }, [state]);
+
 
   useEffect(() => {
     if (loading) return isLoading(false);
   }, [predict, predictions]);
 
-  const textToImage = async (prompt) => {
-    setPredictions(null);
+  const textToImage = async (prompt, event) => {
+    // event.preventDefault();
+
+    // setPredictions(null);
+    // if (state.predictions !== null) dispatch({ type: 'set predictions', value: null });
+    // dispatch({ type: 'set predictions', value: null });
+    dispatch({ type: 'reset' });
+    
     isLoading(true);
-    setPredict(true);
+    dispatch({ type: 'loading', value: true });
+    
+    // setPredict(true);
+    dispatch({ type: 'set predict', value: true });
 
     let images = [];
 
@@ -71,21 +94,25 @@ export default function Home() {
         success: true,
       });
       console.log("push result »");
-      setPredictions(images);
+      dispatch({ type: 'set predictions', value: images });
+      // setPredictions(images);
     };
 
     const predictError = (prompt, model, error) => {
       images.push({
         input: prompt,
         model: model,
+        // status: "failed",
         success: false,
         message: error,
       });
       console.error("❌ error:", error);
-      setPredictions(images);
+      dispatch({ type: 'set predictions', value: images });
+      // setPredictions(images);
     };
 
     for (const model of queryChain) {
+      /*
       await HF(model, prompt)
         .then((image) => {
           // pushResult(image, prompt, model);
@@ -100,18 +127,68 @@ export default function Home() {
         .catch((error) => {
           predictError(prompt, model, error);
         });
+      */
+      const hf_token = process.env.HUGGING_FACE_API_TOKEN;
+
+      
+      console.info(model.replace('https://api-inference.huggingface.co/models/', '').split('/')[1]);
+      console.log(prompt);
+    
+      if (!hf_token) {
+        throw new Error("HUGGING_FACE_API_TOKEN environment variable is not set. See README.md for instructions on how to set it.");
+      }
+    
+      async function query(data) {
+          const response = await fetch(model || MODEL.SDXL, {
+            headers: {
+              Authorization: `Bearer ${hf_token}`,
+            },
+            method: "POST",
+            body: JSON.stringify(data),
+          });
+          const result = await response.blob();
+          // return result;
+      
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+        
+            reader.onend = reject;
+            reader.onabort = reject;
+      
+            reader.onload = () => resolve(reader.result);
+            reader.readAsDataURL(result);
+          });
+        }
+
+
+        query({ inputs: prompt }).then((response) => {
+          // return response; 
+          console.log(response, typeof response)
+          pushResult(response, prompt, model);
+        });
+        
+      // await HF_OLD(model, prompt)
+      //   .then((response) => {
+      //     console.log("dupska czorne", JSON.stringify(response));
+      //     console.log("dupska czorne", response);
+      //     console.log("dupska czorne", JSON.stringify(response));
+      //     // return response;
+      //   });
+
     }
   };
 
   const handleChange = (event) => {
-    setPrompt(event.target.value);
+    // setPrompt(event.target.value);
     setValue(event.target.value);
   };
+
   const changePrompt = (value) => {
-    setPrompt(value);
+    // setPrompt(value);
     setValue(value);
     setTimeout(() => textToImage(value), 100);
   };
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       console.log("enter");
@@ -124,9 +201,10 @@ export default function Home() {
       <Header appName="SPYBOX Create" />
       <LeadSpace />
       <Main wrapper>
-        <BumperSection 
+        {/* <BumperSection 
           tile 
-          block="nearest"
+          // section
+          block="center"
           heading={
             <div className="Leadspace-container column">
               <p className="responsive-paragraph-03 monoblock">Input your text and click button to see some magic happen!</p>
@@ -134,28 +212,34 @@ export default function Home() {
             </div>
           }
         >
-          <QueryInput
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            value={value}
+           <div className="Leadspace-container column">
+              <p className="responsive-paragraph-03 monoblock">Input your text and click button to see some magic happen!</p>
+              <div className="responsive-paragraph-03 monoblock ">↓</div>
+            </div>
+
+        </BumperSection> */}
+
+        <QueryInput
+            // onChange={handleChange}
+            // onKeyDown={handleKeyDown}
+            // value={value}
             placeholder={prompt}
             onClick={() => textToImage(value)}
             loading={loading}
           />
+          <PromptsTags />
 
-        
 
-
-          <section>
+          <SamplePredictions loading={loading} changePrompt={changePrompt} text/>
+        <section>
             <>
               {loading && <Overlay />}
-              <SamplePredictions loading={loading} changePrompt={changePrompt} />
+              
               {/* <Predictions loading={loading} predictions={predictions} /> */}
               <PredictGallery loading={loading} predictions={predictions} predict={predict} results={6}/>
               <Console loading={loading} predictions={predictions} />
             </>
           </section>
-        </BumperSection>
       </Main>
       {predictions && (
         <BumperSection
@@ -182,8 +266,8 @@ const LeadSpace = () => (
     <Wrapper className="Leadspace">
       <div className="Leadspace-container">
         <h1 className="responsive-heading-06 monoblock">Hello to Create</h1>
-        {/* <p className="responsive-paragraph-03 monoblock">Input your text and click button to see some magic happen!</p>
-        <div className="responsive-paragraph-03 monoblock ">↓</div> */}
+        <p className="responsive-paragraph-03 monoblock">Input your text and click button to see some magic happen!</p>
+        <div className="responsive-paragraph-03 monoblock ">↓</div>
       </div>
     </Wrapper>
     {/* <BumperSection 
@@ -233,7 +317,9 @@ const SamplePredictions = ({ loading, changePrompt }) => {
         </li>
         {prompts.map((sample, i) => (
           <li key={i} className={classes.item}>
-            <a className={classes.tag} onClick={() => changePrompt(sample)}>
+            <a className={classes.tag} onClick={() => {
+              changePrompt(sample)
+            }}>
               {sample} ↗
             </a>
           </li>

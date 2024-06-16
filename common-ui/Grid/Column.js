@@ -15,21 +15,20 @@ export default function Column(props) {
   
   // TODO
   // Styles
-  // no-gutters/gutters, no-gutters/gutters on left/right for Lg Md breaks!
-  // Consider Sm
+  // no-gutters/gutters, no-gutters/gutters on left/right for Sm Lg Md breaks!
 
   const {
       id,
       className,
       children, 
       empty,
-      flex, 
+      flex = false, 
       col, 
       colLg, 
       colMd, 
       colSm, 
       gutter,
-      noGutter, 
+      noGutter = false, 
       gutterLeft, 
       gutterRight,
       style 
@@ -91,9 +90,3 @@ export default function Column(props) {
     </div>
   );
 }
-
-Column.defaultProps = {
-  noGutter: false,
-  flex: false,
-  // gutter: true,
-};

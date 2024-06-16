@@ -1,6 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext, useMemo } from 'react';
+import { store } from '@/app/create/context/store.js';
 
-import { Wrapper } from '@/components';
+// import { Wrapper } from '@/components';
 import { Button, Input } from '@/common-ui';
 
 import styles from "./QueryInput.module.scss";
@@ -14,18 +15,26 @@ import styles from "./QueryInput.module.scss";
 export const QueryInput = (props) => {
   const {
     // sticky = false,
-    onChange,
-    onClick,
-    onKeyDown,
-    onSubmit,
-    onAction,
-    placeholder,
-    value,
+    // onChange,
+    // onClick,
+    // onKeyDown,
+    // onSubmit,
+    // onAction,
+    placeholder = "Dupa",
+    // value,
     loading,
   } = props;
 
+  const { state, dispatch } = useContext(store);
+
+  const { prompt } = state;
+
   const stickyElement = useRef();
   const [isSticky, setIsSticky] = useState(false);
+  const [value, setValue] = useState('');
+  // const [prompt, setPrompt] = useState('a cute cat');
+
+
 
   const observerSettings = {
     threshold: 1.0,
@@ -47,6 +56,14 @@ export const QueryInput = (props) => {
   };
 
   useEffect(() => {
+    // dispatch({ type: 'set prompt', value: 'value'});
+    console.log("prąpt:", prompt );
+    if (prompt !== value) {
+      setValue(prompt);
+    }
+  }, [prompt] )
+
+  useEffect(() => {
     // console.log(stickyElement);
 
     let observer = new IntersectionObserver(
@@ -66,6 +83,42 @@ export const QueryInput = (props) => {
     };
   }, [stickyElement, isSticky]);
 
+
+  const setPredict = () => {
+
+    // validate with longer prompt
+    setTimeout(() => dispatch({ type: 'set predict', value: true }), 100);
+  }
+
+
+
+  const handleChange = (event) => {
+    // dispatch({ type: 'set prompt', value: event.target.value});
+    // setValue(event.target.value);
+    dispatch({ type: 'set prompt', value: event.target.value });
+
+    // setTimeout(() => dispatch({ type: 'set predictions', value: event.target.value }), 100);
+    console.log(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      console.log("enter");
+      
+      setPredict();
+    }
+  };
+
+
+  const eventHandlers = useMemo(
+    () => ({
+      onChange(event) {
+        handleChange(event);
+      },
+    }),
+    []
+  );
+
   return ( 
     <div className={styles.module} data-sticky={isSticky} ref={stickyElement}>
       <div className={styles.container}>
@@ -74,10 +127,12 @@ export const QueryInput = (props) => {
           type="text"
           // name="query"
           minLength={3}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
+          // onChange={(event) => handleChange(event)}
+          {...eventHandlers}
+          onKeyDown={handleKeyDown}
           value={value}
-          placeholder={placeholder}
+          // placeholder={placeholder}
+          placeholder="Please enter a prompt ie. 'a cute cat' or use some samples below"
         />
         <Button
           kind="primary"
@@ -85,7 +140,7 @@ export const QueryInput = (props) => {
           className={styles.submit}
           renderIcon="CornerDownLeft"
           // type="Submit"
-          onClick={onClick}
+          onClick={setPredict}
           disabled={loading}
           // disabled={true}
         />
@@ -108,7 +163,7 @@ const Bin = () => {
         onChange={onChange}
         onKeyDown={onKeyDown}
         value={value}
-        placeholder={placeholder}
+        placeholder={placeholder || "Please"}
       />
       <button
         className={styles.submit}
