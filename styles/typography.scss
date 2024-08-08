@@ -1,3 +1,5 @@
+@import 'custom-media.scss';
+
 .productive-heading-07 {
   font-size: 3.375rem;
   line-height: 4rem;
@@ -120,7 +122,110 @@
 //   font-size: 1rem;
 // }
 
+/* expressive styles */
 
+
+[class*="ExpressiveHeading"],
+[class*="Display"] {
+  margin: 0 0 2rem;
+  line-height: 1.3;
+}
+
+.ExpressiveHeading {
+  &-01 {
+    font-weight: 500;
+    font-size: calc(1rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+  &-02 {
+    font-weight: 500;
+    font-size: calc(1.75rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+  &-03 {
+    font-weight: 500;
+    font-size: calc(2.25rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+  &-04 {
+    font-weight: 400;
+    font-size: calc(2.75rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+
+  &-05 {
+    font-weight: 500;
+    font-size: calc(3.25rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+
+  &-06 {
+    font-weight: 300;
+    font-size: calc(3.25rem + 0.5vw);
+    margin: 0 0 2rem;
+  }
+
+  
+  margin: 0 0 2rem;
+  line-height: 1.3;
+  @media screen and (max-width: $breakpoint-xlarge) {
+    // font-size: 1.75rem;
+
+  }
+
+  @media screen and (max-width: $breakpoint-medium ) {
+    // font-size: 1.5rem;
+
+  }
+}
+
+.Display {
+  &-01 {
+    font-size: calc(3.25rem + 0.5vw);
+    font-weight: 300;
+    line-height: 1.3;
+  }
+  &-02 {
+    font-size: calc(3.25rem + 0.5vw);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+}
+
+[class*="ExpressiveParagraph"] {
+  margin: 0 0 2rem;
+  line-height: 1.3;
+}
+
+
+.ExpressiveParagraph {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: calc(1.5rem + 0.5vw);
+  &-01 {
+    font-weight: 300;
+    font-size: calc(1rem + 0.5vw);
+  }
+  &-02 {
+    font-weight: 300;
+    font-size: calc(1.25rem + 0.5vw);
+  }
+  &-03 {
+    font-weight: 300;
+    font-size: calc(1.5rem + 0.5vw);
+  }
+  
+
+  @media screen and (max-width: $breakpoint-xlarge) {
+    // font-size: 1.75rem;
+
+  }
+
+  @media screen and (max-width: $breakpoint-medium ) {
+    // font-size: 1.5rem;
+
+  }
+}
 
 
 h1 {
@@ -128,7 +233,8 @@ h1 {
   line-height: 1.3;
   font-weight: 300;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  // TODO:
+  margin: 0 0 0.875em 0;
 }
 
 h2 {
@@ -136,7 +242,8 @@ h2 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  // TODO:
+  margin: 0 0 0.875em 0;
 }
 
 h3 {
@@ -144,7 +251,8 @@ h3 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  // TODO:
+  margin: 0 0 0.875em 0;
 }
 
 h4 {
@@ -152,7 +260,7 @@ h4 {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  margin: 0 0 0.875em 0;
 }
 
 h5 {
@@ -160,7 +268,8 @@ h5 {
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  // TODO:
+  margin: 0 0 0.875em 0;
 }
 
 h6 {
@@ -168,7 +277,8 @@ h6 {
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0;
-  margin: 0.875em 0;
+  // TODO:
+  margin: 0 0 0.875em 0;
 }
 
 p, span {

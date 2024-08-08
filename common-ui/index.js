@@ -1,7 +1,7 @@
 import { BumperSection } from './BumperSection';
 import { Button, IconButton } from './Button';
-// import { Callout } from './Callout';
-import { Card } from './Card';
+import { Callout } from './Callout';
+import { Card, ImageCard } from './Card';
 // import { Card, CardGroup, ImageCard } from './Card';
 import { Column, Grid, Row } from './Grid';
 import { Link } from './Link';
@@ -23,7 +23,7 @@ export {
   BumperSection,
   Button,
   IconButton,
-  // Callout,
+  Callout,
   Card,
   Column, 
   Grid, 
@@ -31,7 +31,7 @@ export {
   // CardGroup,
   // ClickableTile,
   // Embedded,
-  // ImageCard, 
+  ImageCard,
   Image,
   InlineLoading,
   Input,

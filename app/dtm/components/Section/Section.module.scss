@@ -1,0 +1,14 @@
+@import 'styles/variables.scss';
+
+.module {
+  padding-top: $spacer-3xl !important;
+  min-height: calc(100vh - 20rem);;
+  :global {
+    .Section-hero {
+      padding: { 
+        top: $spacer-xl; 
+        bottom: $spacer-3xl; 
+      };
+    }
+  }
+}

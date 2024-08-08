@@ -75,7 +75,7 @@ export default function Home() {
     // setPredictions(null);
     // if (state.predictions !== null) dispatch({ type: 'set predictions', value: null });
     // dispatch({ type: 'set predictions', value: null });
-    dispatch({ type: 'reset' });
+    // dispatch({ type: 'reset' });
     
     isLoading(true);
     dispatch({ type: 'loading', value: true });

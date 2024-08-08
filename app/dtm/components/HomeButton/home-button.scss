@@ -1,0 +1,88 @@
+@import '@/styles/variables.scss';
+
+
+.link {
+
+}
+
+.Home-button {
+  border: 0;
+  margin: 0; 
+  padding: 0;
+
+  
+  cursor: pointer;
+  color: transparent;
+  
+  
+  transition: 150ms ease;
+  .Logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: currentColor;
+    // outline: transparent solid 0;
+    outline-style: solid;
+    outline-color: currentColor;
+    outline-width: 0;
+    transition: outline-width 150ms ease;
+
+    width: 5.5rem;
+    height: 5.5rem; 
+  }
+  .Logo {
+    color: $white;
+    width: 4.5rem;
+    height: 4.5rem;
+    transition: width 150ms ease, height 150ms ease;
+  }
+  // &:hover {
+  //   color: $white;
+  //   .Logo-container {
+  //     outline-width: 1rem;
+  //   }
+  //   .Logo {
+  //     color: $gray-80;
+  //   }
+  // }
+  &:focus {
+    outline: 0;
+    // outline-offset: 2px;
+  }
+}
+
+
+// .Header.hovered {
+//   .Home-button {
+//     color: $white;
+//     // .Logo-container {
+//     //   outline-width: 1rem;
+//     // }
+//     .Logo {
+//       color: $gray-80;
+//       width: 3.5rem;
+//       height: 3.5rem;
+//     }
+    
+//   }
+// }
+
+
+// .App-shell {
+//   &.global-nav-released,
+//   &.global-nav-active {
+//     .Home-button {
+//       background-color: $white;
+//       .Logo {
+//         color: $gray-80;
+//         width: 3.5rem;
+//         height: 3.5rem;
+//       }
+//     }
+//   }
+//   &.global-nav-inactive {
+//     .Home-button {
+//       //background-color: red;
+//     }
+//   }
+// }

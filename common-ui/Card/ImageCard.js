@@ -1,4 +1,3 @@
-import React from 'react';
 import { Column } from '../Grid';
 import Tile from '../Tile';
 import Icon from '../Icon';

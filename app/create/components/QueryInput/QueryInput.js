@@ -20,7 +20,7 @@ export const QueryInput = (props) => {
     // onKeyDown,
     // onSubmit,
     // onAction,
-    placeholder = "Dupa",
+    placeholder = "Placeholder text",
     // value,
     loading,
   } = props;
@@ -31,7 +31,7 @@ export const QueryInput = (props) => {
 
   const stickyElement = useRef();
   const [isSticky, setIsSticky] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(prompt);
   // const [prompt, setPrompt] = useState('a cute cat');
 
 

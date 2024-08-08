@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useContext, useEffect } from 'react';
 import { store } from '@/app/glyphic/context/store.js';
 

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+import './styles.scss';
+
 import { Button, Link, Card } from "@/common-ui";
 
 
@@ -35,10 +37,15 @@ export default function Home() {
         </Wrapper>
 
         <Grid>
+          <h3>Developed projects</h3>
+          <Row>
+            <Card col={2} ratio="1x1" href="/dtm" title="I d I ™" subtitle="personal page" noGutter dark >DOMINICOM WEBSITE, NEW MVP</Card>
+            <Card col={4} href="/create" title="Create" subtitle="Generated images from text" noGutter dark >GENERATE SOME IMAGES BY AI AND ENJOY CREATIVITY WITH PROMPTING</Card>
+          </Row>
+          <h3>Refactored apps</h3>
           <Row>
             <Card col={4} ratio="1x1" href="/faceholder" title="Faceholder" subtitle="Faces that not exist" noGutter dark />
             <Card col={4} href="/glyphic" title="Glyphic" subtitle="Cool symbols app" noGutter dark >GLYPHIC IS YOUR ONE-STOP SOLUTION FOR COPYING GLYPHS AND SPECIAL CHARACTERS EFFORTLESSLY</Card>
-            <Card col={4} href="/create" title="Create" subtitle="Generated images from text" noGutter dark >GENERATE SOME IMAGES BY AI AND ENJOY CREATIVITY WITH PROMPTING</Card>
           </Row>
 
         </Grid>
@@ -126,6 +133,7 @@ export default function Home() {
             </a>
           </div>
         </Wrapper>
+        
       </Main>
 
       <Footer />

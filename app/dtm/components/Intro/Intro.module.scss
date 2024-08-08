@@ -1,0 +1,94 @@
+@import 'styles/variables.scss';
+
+.section {
+  // padding-top: $header-space;
+  width: 100%;
+  height: calc(100vh - 7.5em);
+  min-height: 40rem;
+  color: $white;
+  background-color: $black;
+  position: absolute;
+  top: 0;
+  // @media screen and (max-width: $layout-md) {
+  @media screen and (max-width: 66rem) {
+    height: calc(100vh - 5.5em);
+  }
+  z-index: -100;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url(img/portrait_glitch.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 50vh 50vh;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+.leadText {
+  text-align: left;
+  width: 100%;
+  height: 15em;
+  background-size: 10em, 10em;
+  background-position: left bottom;
+
+}
+
+.heading h4 {
+  margin: 0 0 0.5em 0;
+}
+
+// leadTextChanger
+.heading {
+  position: relative;
+  // &:before {
+  //   content: "I'm";
+  // }
+  span {
+    animation: textChanger 18s infinite;
+    position: absolute;
+    opacity: 0;
+    margin-left: 0.5em;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: 3s;
+    }
+    &:nth-child(3) {
+      animation-delay: 6s;
+    }
+    &:nth-child(4) {
+      animation-delay: 9s;
+    }
+    &:nth-child(5) {
+      animation-delay: 12s;
+    }
+    &:nth-child(6) {
+      animation-delay: 15s;
+      border-bottom: 0.1em solid $white;
+    }
+  }
+}
+
+
+@keyframes textChanger {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+}

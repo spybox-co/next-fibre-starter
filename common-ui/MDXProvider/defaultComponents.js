@@ -25,7 +25,7 @@ import {
   ImageCard, 
   Tile,
   Image,
-} from 'components'
+} from '@/common-ui';
 
 
 const RowParapraph = ({ children }) => (

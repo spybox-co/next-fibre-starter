@@ -1,0 +1,137 @@
+@import 'styles/variables.scss';
+@import 'styles/custom-media.scss';
+
+
+
+$header-space: $spacer-3xl; // 8rem;
+
+$header-inner-height: 6.75rem;
+$header-outer-height: calc(100vh - ($header-inner-height + 0.75rem)); // 75vh;
+
+$header-height-difference: calc(
+  $header-outer-height - $header-inner-height
+);
+
+
+// $header-outer-height: calc(100vh - 7.5em); // 75vh;
+// $header-inner-height: 6.75rem;
+// $header-height-difference: calc(
+//   $header-outer-height - $header-inner-height
+// );
+
+.module {
+  // padding: { left: $spacer-m; right: $spacer-m };
+  padding-top: 4rem !important;
+  padding-bottom: 0 !important;
+  display: flex;
+  width: 100%;
+  position: -webkit-sticky;
+	position: sticky;
+  // overflow: auto;
+    /* MAGIC HAPPENS HERE */
+    transform: translateZ(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    -webkit-transform: translateZ(0);
+    -webkit-font-smoothing: antialiased; /* seems to do the same in Safari */
+  z-index: 10000;
+  // transition: 150ms ease;
+  pointer-events: none;
+
+  .substyle {
+    color: red;
+  }
+}
+.container {
+  width: 100vw;
+  flex-wrap: nowrap;
+}
+
+.global {
+  height: 0;
+  top: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.active {
+  height: $header-outer-height;
+  top: calc(
+		$header-height-difference * -1
+	); /* Multiply by -1 to get a negative value */
+}
+
+
+.home {
+  padding: $space-16 0 0 0;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  // overflow: auto;
+      /* MAGIC HAPPENS HERE */
+      transform: translateZ(0);
+      -moz-transform: translatez(0);
+      -ms-transform: translatez(0);
+      -o-transform: translatez(0);
+      -webkit-transform: translateZ(0);
+      -webkit-font-smoothing: antialiased; /* seems to do the same in Safari */
+	top: 0;
+  height: $header-inner-height;
+}
+
+.navigation {
+	/* Make it stick */
+  padding: $space-16 0 0 0;
+	height: $header-inner-height;
+  display: flex;
+  flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  // overflow: auto;
+      /* MAGIC HAPPENS HERE */
+      transform: translateZ(0);
+      -moz-transform: translatez(0);
+      -ms-transform: translatez(0);
+      -o-transform: translatez(0);
+      -webkit-transform: translateZ(0);
+      -webkit-font-smoothing: antialiased; /* seems to do the same in Safari */
+	top: 100%;
+  // top: calc(
+	// 	$header-height-difference * -1
+	// );
+}
+
+.globalModule {
+  // flex: 1 1 0;
+  flex-grow: 1;
+  // width: calc(33% - 1.7rem);
+}
+
+
+// ToDo: Obsolete & Delete
+
+.item {
+  // height: 5.75rem;
+  display: flex;
+  margin: { right: $space-02; bottom: $space-02 };
+  pointer-events: auto;
+  background-color: $white;
+  transition: background-color 150ms, box-shadow 150ms;
+  // box-shadow: $elev-100;
+  // &:hover {
+  //   background-color: $gray-20;
+  // }
+  &:hover {
+    box-shadow: 0 0.25rem 0.5rem rgba($black, 0.125); //$elev-100;
+    z-index: 1000;
+  }
+  a {
+    padding: $space-16;
+    @media screen and (max-width: $layout-xs) {
+      padding: $space-12;
+    }
+    cursor: pointer;
+  }
+}
+

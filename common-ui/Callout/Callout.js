@@ -1,7 +1,9 @@
-import { cn } from 'utils/helpers'
-import { Grid, Row, Column } from 'layout'
+'use client'
 
-// import { Button, Card } from 'components'
+import { cn } from '@/utils/helpers';
+import { Grid, Row, Column } from '@/common-ui/Grid';
+
+// import { Button, Card } from '@/common-ui';
 
 import styles from './Callout.module.scss'
 

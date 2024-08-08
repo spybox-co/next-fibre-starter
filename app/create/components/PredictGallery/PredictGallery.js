@@ -20,7 +20,7 @@ export const PredictGallery = ({ loading, predictions, predict, results }) => {
   const [myTime, setMyTime] = useState(new Date());
   const [showPredict, setShowPredict] = useState(predict);
 
-  const [showResults, setShowResults] = useState(results || 6);
+  const [showResults, setShowResults] = useState(results || 8);
 
   const predictSlots = Array.from(Array(9).keys());
 
